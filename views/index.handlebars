@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <center>
+        <img src="/assets/img/burger.png" class="img-fluid" alt="burger">
+        <h1>Eat-Da-Burger!</h1>
+    </center>
+
+    <div class="row">
+        <div class="col-md-6 gap-3">
+            <div>
+                {{#each burgers}} {{#unless devoured}}
+                <form action="api/burgers/{{id}}" method="POST">
+                    <div class="input-group">
+                        <li class="form-control">{{burger_name}}</li>
+                        <span>
+                            <button class="button" type="submit">Devour It!</button>
+                        </span>
+                    </div>
+                </form>
+                {{/unless}} {{/each}}
+            </div>
+        </div>
+
+        <div class="col-md-6 gap-3">
+            <div>
+                {{#each burgers}} {{#if this.devoured}}
+                <div class="input-group">
+                    <li class="form-control">{{this.burger_name}}</li>
+                </div>
+                {{/if}} {{/each}}
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+
+    <center>
+
+        <form action="api/add" method="POST">
+
+            <div class="row">
+                <center>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <textarea class="form-control" type="text" rows="3" width="4" name="burger_name"></textarea>
+                        </div>
+                    </div>
+                </center>
+            </div>
+
+            <button id="submit" class="button" type="submit">Submit</button>
+            <h5>Enter a burger you want to eat Click the "submit" button</h5>
+
+        </form>
+    </center>
+
+</div>
