@@ -103,10 +103,9 @@ Link to the app :mag:: [link]()
 :warning: Copyright (c) 2021 xxx. This project is [TBD](https://choosealicense.com/licenses/) licensed.
 
 ## Contact  
-:octocat:  GitHub:  
-[Emily](https://github.com/espoldi)  
-[Jeremy](https://github.com/jdavidrice)   
-[Delphine](https://github.com/Delph-Sunny)   
+:octocat:  GitHub: [Emily](https://github.com/espoldi), 
+[Jeremy](https://github.com/jdavidrice), 
+[Delphine](https://github.com/Delph-Sunny), 
 [Qi](https://github.com/qifeng86)  
 
 *   [Return to Top](#BigMood)  
