@@ -1,7 +1,7 @@
 {
-  "name": "1-passport-example",
+  "name": "bigmood",
   "version": "1.0.0",
-  "description": "This helps people discover your package, as it's listed in 'npm search'.",
+  "description": "Mood tracking app",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
