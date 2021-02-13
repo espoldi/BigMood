@@ -1,11 +1,13 @@
 {
   "name": "bigmood",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mood tracking app",
   "main": "server.js",
   "scripts": {
+    "lint": "eslint './**/*.js' --quiet",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
   "devDependencies": {
     "eslint": "^7.19.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
   }
 }
