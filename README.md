@@ -1,13 +1,12 @@
 # BigMood  
-  
+
+ <span align="center">   
   
  :construction: IN PROGRESS :construction:  
   
   
 
 ---  
-
-<span align="center">  
 
 
 [![Build Status](https://travis-ci.com/espoldi/bigmood.svg?branch=main)](https://travis-ci.com/espoldi/bigmood)
@@ -100,7 +99,9 @@ Link to the app :mag:: [link]()
 
 ## License  
 
-:warning: Copyright (c) 2021 xxx. This project is [TBD](https://choosealicense.com/licenses/) licensed.
+:warning: Copyright (c) 2021 xxx. This project is [TBD](https://choosealicense.com/licenses/) licensed.  
+
+*   [Return to Top](#BigMood)  
 
 ## Contact  
 :octocat:  GitHub: [Emily](https://github.com/espoldi), 
