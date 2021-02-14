@@ -5,54 +5,65 @@
   <title>BigMood</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+  <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
   <link href="../public/assets/css/signup.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">BIGMOOD</a>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="vertical-center">
-          <h2>Sign Up</h2>
+
+  <div class="container px-4 py-5 mx-auto">
+    <div class="card card0">
+      <div class="d-flex flex-lg-row flex-column-reverse">
+        <div class="card card1">
+          <div class="row justify-content-center my-auto">
+            <div class="col-md-8 col-10 my-5">
+
+              <h3 class="mb-5 text-center heading">BIGMOOD</h3>
+              <h6 class="msg-info">Please create your account</h6>
+              <div class="form-group">
+                <label for="inputEmail1" class="form-control-label text-muted">Username</label>
+                <input type="email" placeholder="Email" class="form-control" id="email-input">
+              </div>
+              <div class="form-group"> <label for="inputPassword1"
+                  class="form-control-label text-muted">Password</label> <input type="password" placeholder="Password"
+                  class="form-control" id="password-input"></div>
+              <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> <span class="msg"></span>
+              </div>
+              <div class="row justify-content-center my-3 px-3"> <button type="submit" class="btn-block btn-color"
+                  id="signupbutton">Sign Up</button>
+              </div>
+            </div>
+          </div>
+          <div class="bottom text-center mb-5">
+            <p href="#" class="sm-text mx-auto mb-3">Have an account?<button type="submit" class="btn btn-white ml-2"
+                id="backtologinbutton">Login</button></p>
+          </div>
         </div>
-        <form class="signup">
-          <div class="form-group">
-            <label for="inputEmail1">
-              <h4>Email</h4>
-            </label>
-            <input type="email" class="form-control" id="email-input">
+        <div class="card card2">
+          <div class="my-auto mx-md-5 px-md-5 right">
+            <h3 class="text-white">BigMood is more than just an app</h3> <small class="text-white">A
+              self-care bullet journal with golas mood diary & happiness tracker.</small>
           </div>
-          <div class="form-group">
-            <label for="inputEmail1">
-              <h4>Password</h4>
-            </label>
-            <input type="password" class="form-control" id="password-input">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <div class="vertical-center">
-            <button type="submit" class="btn btn-default">Sign Up</button>
-          </div>
-        </form>
-        <br />
-        <div class="vertical-center">
-          <h4><a href="/login" id="login">Log in</a></h4>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="../public/assets/js/signup.js"></script>
+  <div class="footer">
+    <ul>
+      <p>Developed by:</p>
+      <li>Qi Feng</li>
+      <li>Jeremy Rice</li>
+      <li>Delph Sunny</li>
+      <li>Emily Spoldi</li>
+    </ul>
+  </div>
+
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
 </body>
 
