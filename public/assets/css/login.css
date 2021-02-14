@@ -1,0 +1,64 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+
+body, html {
+  height: 100%;
+  background-image: url("../img/matteo-rimoldi-sGYo0MbcvmQ-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color:#555;
+
+}
+
+
+.nav-wrapper {
+  font-family:sans-serif;
+  background-color: #137c72;
+  font-weight: bold
+}
+
+h1 {
+
+  color: #137c72;
+  font-weight: bold
+  
+}
+
+h2,
+h4
+{
+
+  color: #137c72;
+  font-weight: bold
+  
+}
+
+
+.form-control {
+
+  color: #137c72;
+  font-size: large;
+  font-weight: bold
+}
+
+#signup {
+
+  color: #137c72;
+  font-weight: bold
+}
+
+.vertical-center {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login {
+  color: #137c72;
+  font-weight: bold
+}
