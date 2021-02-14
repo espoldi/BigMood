@@ -6,7 +6,7 @@ module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define("User", {
     // The email cannot be null, and must be a proper email before creation
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(50),
       allowNull: false,
       unique: true,
       validate: {
@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
+    }
   });
   // Can unhashed password entered by user be compared to hashed password stored in our database?
   User.prototype.validPassword = function (password) {
@@ -32,5 +32,16 @@ module.exports = function (sequelize, DataTypes) {
       null,
     );
   });
+  // Add associations
+  User.associate = (models) => {
+    // Associating User with Theme
+    User.belongsTo(models.Theme, {
+      foreignKey: "themeId",
+      targetKey: "id",
+      allowNull: false,
+      defaultValue: 1
+    });
+  };
+
   return User;
 };
