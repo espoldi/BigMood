@@ -1,5 +1,5 @@
 // Side Nav Menu
-const slideMenu = document.querySelectorAll(".slidenav");
+const slideMenu = document.querySelectorAll(".sidenav");
 M.Sidenav.init(slideMenu, {});
 
 
