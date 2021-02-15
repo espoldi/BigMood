@@ -2,17 +2,14 @@
 <nav>
     <div class="nav-wrapper">
         <div class="container">
-            <a href="#" class="brand-logo">BigMood</a>
+            <a href="#" class="brand-logo center">BigMood</a>
+            <a href="#" class="sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
         </div>
     </div>
 </nav>
 
 {{!-- Side Nav Bar --}}
-<ul id="slide-out" class="sidenav sidenav-fixed">
-
-    {{!-- Close Side Nav --}}
-    <li><a class="sidenav-close" href="#!">Clicking this will close Sidenav</a></li>
-
+<ul id="slide-out" class="sidenav">
     <li>
         <div class="user-view">
             <div class="background">
@@ -23,18 +20,12 @@
             <a href="#email"><span class="white-text email"></span></a>
         </div>
     </li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
-    <li>
-        <div class="divider"></div>
-    </li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Theme</a></li>
 </ul>
-<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
 <!-- Modal Trigger -->
-  <a class="btn-floating btn-large waves-effect waves-light indigo hoverable pulse modal-trigger" data-target="modal1" href="#modal1"><i class="material-icons" id='addNew'>Modal</i></a>
+  <a class="btn-floating btn-large waves-effect waves-light indigo hoverable pulse modal-trigger" data-target="modal1" href="#modal1"><i class="material-icons" id='addNew'>add</i></a>
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
