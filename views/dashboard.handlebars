@@ -1,0 +1,50 @@
+{{!-- Nav Bar --}}
+<nav>
+    <div class="nav-wrapper">
+        <div class="container">
+            <a href="#" class="brand-logo center">BigMood</a>
+            <a href="#" class="sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
+        </div>
+    </div>
+</nav>
+
+{{!-- Side Nav Bar --}}
+<ul id="slide-out" class="sidenav">
+    {{!-- User Info Section --}}
+    <li>
+        <div class="user-view">
+            <div class="background">
+                <img src="">
+            </div>
+            <a href="#user"><img class="circle" src=""></a>
+            <a href="#name"><span class="white-text name"></span></a>
+            <a href="#email"><span class="white-text email"></span></a>
+        </div>
+    </li>
+    <li><div class="divider"></div></li>
+    {{!-- Theme Selection Section --}}
+    <li><a class="subheader">Theme</a></li>
+</ul>
+
+{{!-- Modal New Mood Entry --}}
+<div class="container">
+    <button class="btn indigo hoverable modal-trigger" data-target="newEntry">New Entry</button>
+</div>
+
+<div class="modal" id="newEntry">
+    <div class="modal-content">
+        <h3>How are you feeling?</h3>
+        <div class="divider"></div>
+        <h3>What are you doing?</h3>
+        <div class="divider"></div>
+        <div class="modal-footer">
+            <h2>Preview</h2>
+            <button class="btn green">Submit</button>
+            <button class="btn red modal-close">Cancel</button>
+        </div>
+        
+    </div>
+</div>
+
+{{!-- Link to Dashboard JS --}}
+<script src="../public/js/dashboard.js"></script>
