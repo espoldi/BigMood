@@ -63,7 +63,7 @@ AS a ...
 
 :warning: How to use the app  
 
-Link to the app :mag:: [link]()  
+Link to the app :mag:: [link](https://bigmoodapp.herokuapp.com/)  
 
 *   [Return to Top](#BigMood)  
 
