@@ -33,8 +33,17 @@ module.exports = function (app) {
     res.redirect("/");
   });
 
+  // GET route for getting all of the quotes
+  app.get("/api/quote", function (req, res) {
+    db.Quote.findAll({})
+      .then(function(result) {
+        res.json(result);
+      });
+  });
+
+  // *************TO DO: ADD THEME ************** //
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function (req, res) {
+  app.get("/api/user", function (req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -47,4 +56,8 @@ module.exports = function (app) {
       });
     }
   });
+
+
+  // *************TO DO ************** //
+// Get route for returning UserData including Mood, Activity and User
 };

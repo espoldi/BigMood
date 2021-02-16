@@ -1,16 +1,8 @@
+// eslint-disable-next-line no-unused-vars
 module.exports = (sequelize, DataTypes) => {
-  const UserData = sequelize.define("UserData", {
-    date: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      validate: {
-        isNumeric: true
-      }
-    }
-  });
+  const UserData = sequelize.define("UserData", {});
 
-
+  // Add associations
   UserData.associate = (models) => {
     // Associating UserData with Mood, Activity and User
     UserData.belongsTo(models.Mood, {
