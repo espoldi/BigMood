@@ -10,6 +10,7 @@
 
 {{!-- Side Nav Bar --}}
 <ul id="slide-out" class="sidenav">
+    {{!-- User Info Section --}}
     <li>
         <div class="user-view">
             <div class="background">
@@ -21,22 +22,29 @@
         </div>
     </li>
     <li><div class="divider"></div></li>
+    {{!-- Theme Selection Section --}}
     <li><a class="subheader">Theme</a></li>
 </ul>
 
-<!-- Modal Trigger -->
-  <a class="btn-floating btn-large waves-effect waves-light indigo hoverable pulse modal-trigger" data-target="modal1" href="#modal1"><i class="material-icons" id='addNew'>add</i></a>
+{{!-- Modal New Mood Entry --}}
+<div class="container">
+    <button class="btn indigo hoverable modal-trigger" data-target="newEntry">New Entry</button>
+</div>
 
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
+<div class="modal" id="newEntry">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+        <h3>How are you feeling?</h3>
+        <div class="divider"></div>
+        <h3>What are you doing?</h3>
+        <div class="divider"></div>
+        <div class="modal-footer">
+            <h2>Preview</h2>
+            <button class="btn green">Submit</button>
+            <button class="btn red modal-close">Cancel</button>
+        </div>
+        
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
+</div>
 
 {{!-- Link to Dashboard JS --}}
 <script src="../public/js/dashboard.js"></script>
