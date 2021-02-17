@@ -21,10 +21,43 @@
             <a href="#email"><span class="white-text email"></span></a>
         </div>
     </li>
-    <li><div class="divider"></div></li>
+    <li>
+        <div class="divider"></div>
+    </li>
     {{!-- Theme Selection Section --}}
     <li><a class="subheader">Theme</a></li>
 </ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m8 l6">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Dashboard Statistics</h3>
+                    <p>{INSERT GRAPH HERE}</p>
+                </div>
+                <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width">
+                        <li class="tab"><a href="#mood">Average Mood</a></li>
+                        <li class="tab"><a class="active" href="#activity">Most Used Activity</a></li>
+                        <li class="tab"><a href="#quote">Latest Quote</a></li>
+                    </ul>
+                </div>
+                <div class="card-content grey lighten-4">
+                    <div id="mood">
+                        <h4>Average Mood</h4>
+                    </div>
+                    <div id="activity">
+                        <h4>Most Used Activity</h4>
+                    </div>
+                    <div id="quote">
+                        <h4>Latest Quote</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {{!-- Modal New Mood Entry --}}
 <div class="container">
@@ -42,7 +75,7 @@
             <button class="btn green">Submit</button>
             <button class="btn red modal-close">Cancel</button>
         </div>
-        
+
     </div>
 </div>
 
