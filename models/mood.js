@@ -13,7 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true,
       validate: {
-        isIn: [["excited_icon", "happy_icon", "neutral_icon", "sad_icon", "breakdown_icon"]]
+        isIn: [[
+          "sentiment_very_satisfied",
+          "sentiment_satisfied",
+          "sentiment_neutral",
+          "sentiment_dissatisfied",
+          "sentiment_very_dissatisfied"
+        ]]
       }
     }
   }, {

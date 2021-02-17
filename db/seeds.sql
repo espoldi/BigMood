@@ -11,27 +11,27 @@ VALUES
 
 INSERT INTO moods (name, icon)
 VALUES
-("excited","excited-icon"),
-("happy", "happy-icon"),
-("neutral", "neutral-icon"),
-("sad","sad-icon" ),
-("breakdown", "breakdown-icon");
+("excited","sentiment_very_satisfied"),
+("happy", "sentiment_satisfied"),
+("neutral", "sentiment_neutral"),
+("sad","sentiment_dissatisfied" ),
+("breakdown", "sentiment_very_dissatisfied");
 
 
 INSERT INTO activities (name, icon)
 VALUES
-("chores","chores-icon"),
-("exercise","exercise-icon"),
-("family","family-icon"),
-("friends","friends-icon"),
-("games","games-icon"),
-("home","home-icon"),
-("meal","meal-icon"),
-("music","music-icon"),
-("reading","reading-icon"),
-("travel","travel-icon"),
-("tv/movies","tv/movies-icon"),
-("work","work-icon");
+("chores","delete"),
+("exercise","directions_run"),
+("family","child_friendly"),
+("friends","group"),
+("games","casino"),
+("home","home"),
+("meal","free_breakfast"),
+("music","album"),
+("reading","book"),
+("travel","directions_car"),
+("tv/movies","tv"),
+("work","domain");
 
 INSERT INTO quotes (author, body)
 VALUES
