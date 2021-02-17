@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     icon: {
-      type: DataTypes.STRING(15),
+      type: DataTypes.STRING(30),
       allowNull: false,
       unique: true,
       validate: {
