@@ -27,18 +27,18 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       validate: {
         isIn: [[
-          "chores_icon",
-          "exercise_icon",
-          "family_icon",
-          "friends_icon",
-          "games_icon",
-          "home_icon",
-          "meal_icon",
-          "music_icon",
-          "reading_icon",
-          "travel_icon",
-          "tv/movies_icon",
-          "work_icon"
+          "delete",
+          "directions_run",
+          "child_friendly",
+          "group",
+          "casino",
+          "home",
+          "free_breakfast",
+          "album",
+          "book",
+          "directions_car",
+          "tv",
+          "domain"
         ]]
       }
     }
