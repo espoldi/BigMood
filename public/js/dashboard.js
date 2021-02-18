@@ -7,3 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const newEntryWindow = document.querySelector(".modal");
     M.Modal.init(newEntryWindow, {});
 });
+
+// Tabbed Card for Statistics
+const moodStats = document.querySelector(".dropdown-trigger");
+M.Dropdown.init(moodStats, {});
