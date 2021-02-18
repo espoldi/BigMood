@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 // Requiring our models and passport as we've configured it
-var db = require("../models");
-var passport = require("../config/passport");
+const db = require("../models");
+const passport = require("../config/passport");
 
 module.exports = (app) => {
 
