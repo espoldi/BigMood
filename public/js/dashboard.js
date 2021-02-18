@@ -11,3 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
 // Dropdown for sorting all entries
 const sortBy = document.querySelector(".dropdown-trigger");
 M.Dropdown.init(sortBy, {});
+
+// Collapsible for all entries
+document.addEventListener("DOMContentLoaded", function() {
+    const displayNew = document.querySelector(".collapsible");
+    M.Collapsible.init(displayNew, {});
+});
