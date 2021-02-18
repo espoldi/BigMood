@@ -14,24 +14,24 @@ VALUES
 ("excited","sentiment_very_satisfied"),
 ("happy", "sentiment_satisfied"),
 ("neutral", "sentiment_neutral"),
-("sad","sentiment_dissatisfied" ),
+("sad", "sentiment_dissatisfied" ),
 ("breakdown", "sentiment_very_dissatisfied");
 
 
 INSERT INTO activities (name, icon)
 VALUES
-("chores","delete"),
-("exercise","directions_run"),
-("family","child_friendly"),
-("friends","group"),
-("games","casino"),
-("home","home"),
-("meal","free_breakfast"),
-("music","album"),
-("reading","book"),
-("travel","directions_car"),
-("tv/movies","tv"),
-("work","domain");
+("chores", "delete"),
+("exercise", "directions_run"),
+("family", "child_friendly"),
+("friends", "group"),
+("games", "casino"),
+("home", "home"),
+("meal", "free_breakfast"),
+("music", "album"),
+("reading", "book"),
+("travel", "directions_car"),
+("tv/movies", "tv"),
+("work", "domain");
 
 INSERT INTO quotes (author, body)
 VALUES
