@@ -20,7 +20,7 @@ module.exports = function (app) {
 
     res.render("signup", {
       style: 'signup.css'
-    }););
+    });
   });
 
   app.get("/login", function (req, res) {
@@ -34,7 +34,7 @@ module.exports = function (app) {
 
     res.render("login", {
       style: 'login.css'
-    }););
+    });
   });
 
   // Here we've add our isAuthenticated middleware to this route.
