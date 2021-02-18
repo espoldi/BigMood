@@ -1,5 +1,9 @@
+body {
+    background-color: black;
+}
+
 #dashContent {
-    background-color: gray;
+    background-color: lightgray;
     align-content: center;
 }
 
