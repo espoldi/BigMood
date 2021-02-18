@@ -1,13 +1,14 @@
 <body>
 
   <div class="container px-4 py-5 mx-auto">
-    <div class="card card0">
+    <div class="card card0" id="logincard">
       <div class="d-flex flex-lg-row flex-column-reverse">
         <div class="card card1">
           <div class="row justify-content-center my-auto">
-            <div class="col-md-8 col-10 my-5">
+            <div class="col-md-8 col-6 my-5">
+              <div href="#" class="brand-logo center"><img id="logo" src="../public/assets/img/logo.png">
+              </div>
 
-              <h3 class="mb-5 text-center heading">BIGMOOD</h3>
               <h6 class="msg-info">Please login to your account</h6>
               <form class="login">
                 <div class="form-group">
@@ -17,25 +18,22 @@
                 <div class="form-group"> <label for="inputPassword1"
                     class="form-control-label text-muted">Password</label> <input type="password" placeholder="Password"
                     class="form-control" id="password-input"></div>
-                <div class="row justify-content-center my-3 px-3"> <button type="submit" class="btn-block btn-color"
-                    id="loginbutton">Login</button>
+                <div class="row justify-content-center my-3 px-3"> <button type="submit"
+                    class="waves-effect waves-light btn-color ml-2" id="loginbutton">Login</button>
                 </div>
               </form>
             </div>
 
           </div>
+
+
           <div class="bottom text-center mb-5">
-            <p href="#" class="sm-text mx-auto mb-3">Don't have an account?<button type="submit"
-                class="btn btn-white ml-2" id="createnewbutton">Create
+            <p href="#" class="justify-content-center my-3 px-3">Need an account?<button type="submit"
+                class="btn-white waves-effect waves-light ml-2" id="createnewbutton">Create
                 new</button></p>
           </div>
         </div>
-        <div class="card card2">
-          <div class="my-auto mx-md-5 px-md-5 right">
-            <h3 class="text-white">BigMood is more than just an app</h3> <small class="text-white">A
-              self-care bullet journal with golas mood diary & happiness tracker.</small>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -52,4 +50,7 @@
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script type="text/javascript" src="../public/js/login.js"></script>
+
 </body>
+
+</html>
