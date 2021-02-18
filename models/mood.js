@@ -30,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
   Mood.associate = (models) => {
     // Associating Mood with UserData
     Mood.hasMany(models.UserData, {
-      foreignKey: "fk_mood",
-      targetKey: "name"
+      foreignKey: "moodId",
+      targetKey: "id"
     });
   };
   return Mood;
