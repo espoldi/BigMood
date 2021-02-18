@@ -8,6 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
     M.Modal.init(newEntryWindow, {});
 });
 
-// Tabbed Card for Statistics
-const moodStats = document.querySelector(".dropdown-trigger");
-M.Dropdown.init(moodStats, {});
+// Dropdown for sorting all entries
+const sortBy = document.querySelector(".dropdown-trigger");
+M.Dropdown.init(sortBy, {});
