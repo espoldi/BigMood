@@ -42,8 +42,8 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
     User.hasMany(models.UserData, {
-      foreignKey: "fk_user",
-      targetKey: "email"
+      foreignKey: "userId",
+      targetKey: "id"
     });
   };
 
