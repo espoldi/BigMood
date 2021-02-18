@@ -1,3 +1,9 @@
+#dashContent {
+    background-color: gray;
+    align-content: center;
+}
+
+
 #modalButton {
     position: sticky;
     right: 0;
