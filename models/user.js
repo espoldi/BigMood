@@ -41,6 +41,10 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 1
       }
     });
+    User.hasMany(models.UserData, {
+      foreignKey: "userId",
+      targetKey: "id"
+    });
   };
 
   return User;

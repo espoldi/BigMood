@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     icon: {
-      type: DataTypes.STRING(15),
+      type: DataTypes.STRING(30),
       allowNull: false,
       unique: true,
       validate: {
@@ -30,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
   Mood.associate = (models) => {
     // Associating Mood with UserData
     Mood.hasMany(models.UserData, {
-      foreignKey: "fk_mood",
-      targetKey: "name"
+      foreignKey: "moodId",
+      targetKey: "id"
     });
   };
   return Mood;

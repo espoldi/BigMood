@@ -5,17 +5,17 @@ module.exports = (sequelize, DataTypes) => {
   // Add associations
   UserData.associate = (models) => {
     // Associating UserData with Mood, Activity and User
+    UserData.belongsTo(models.User, {
+      foreignKey: "userId",
+      targetKey: "id"
+    });
     UserData.belongsTo(models.Mood, {
-      foreignKey: "fk_mood",
-      targetKey: "name"
+      foreignKey: "moodId",
+      targetKey: "id"
     });
     UserData.belongsTo(models.Activity, {
-      foreignKey: "fk_activity",
-      targetKey: "name"
-    });
-    UserData.belongsTo(models.User, {
-      foreignKey: "fk_user",
-      targetKey: "email"
+      foreignKey: "activityId",
+      targetKey: "id"
     });
   };
 

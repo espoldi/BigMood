@@ -50,8 +50,8 @@ module.exports = (sequelize, DataTypes) => {
   Activity.associate = (models) => {
     // Associating Activity with UserData
     Activity.hasMany(models.UserData, {
-      foreignKey: "fk_activity",
-      targetKey: "name"
+      foreignKey: "activityId",
+      targetKey: "id"
     });
   };
   return Activity;
