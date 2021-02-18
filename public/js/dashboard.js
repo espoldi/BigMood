@@ -7,3 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const newEntryWindow = document.querySelector(".modal");
     M.Modal.init(newEntryWindow, {});
 });
+
+// Dropdown for sorting all entries
+const sortBy = document.querySelector(".dropdown-trigger");
+M.Dropdown.init(sortBy, {});

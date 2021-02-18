@@ -36,10 +36,14 @@ module.exports = function (sequelize, DataTypes) {
   User.associate = (models) => {
     // Associating User with Theme
     User.belongsTo(models.Theme, {
-      foreignKey: "themeId",
-      targetKey: "id",
-      allowNull: false,
-      defaultValue: 1
+      foreignKey: {
+        allowNull: false,
+        defaultValue: 1
+      }
+    });
+    User.hasMany(models.UserData, {
+      foreignKey: "userId",
+      targetKey: "id"
     });
   };
 
