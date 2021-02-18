@@ -1,0 +1,15 @@
+body {
+    background-color: black;
+}
+
+#dashContent {
+    background-color: lightgray;
+    align-content: center;
+}
+
+
+#modalButton {
+    position: sticky;
+    right: 0;
+    bottom: 0;
+}
