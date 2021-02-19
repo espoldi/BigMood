@@ -104,7 +104,7 @@ module.exports = (app) => {
       },
       include:[db.Theme]
     }).then((result) => {
-      delPass(result); // Excluding password and unnessary key from result
+      delete result.dataValues.password; // Excluding password and unnessary key from result
       res.json(result);
     });
   });
@@ -135,13 +135,30 @@ module.exports = (app) => {
           id: req.params.id
         }
       }).then((result) => {
-      delPass(result); // Excluding password and unnessary key from result: ?NECESSARY?
+      delete result.dataValues.password; // Excluding password from result: ?NECESSARY?
       res.status(202).send(result); // Accepted status
     }).catch((error) => {
       console.log(error); // FOR TESTING
       res.status(400).send(error); // Bad request status
     });
   });
+
+  /* POST route for updating the theme of the current user ** MORE SECURED **
+  app.post("/api/update", (req, res) => {
+    db.User.findOne(
+      {
+        ThemeId: req.body.ThemeId
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then((result) => {
+      res.send(result);
+    }).catch((error) => {
+      res.send(error);
+    });
+  });*/
 
   // POST route for adding mood and activity to the current user
   app.post("/api/userdata", (req, res) => {
