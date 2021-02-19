@@ -30,6 +30,7 @@ module.exports = (app) => {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     })
@@ -56,6 +57,7 @@ module.exports = (app) => {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        name: req.user.email,
         email: req.user.email,
         id: req.user.id
       });
@@ -125,9 +127,14 @@ module.exports = (app) => {
   // PUT route for updating the theme of the current user
   app.put("/api/users/:id", (req, res) => {
     db.User.update(
-      {ThemeId: req.body.ThemeId},
-      {where: req.params.id}
-    ).then((result) => {
+      {
+        ThemeId: req.body.ThemeId
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }).then((result) => {
       delPass(result); // Excluding password and unnessary key from result: ?NECESSARY?
       res.status(202).send(result); // Accepted status
     }).catch((error) => {
