@@ -2,6 +2,12 @@
 const slideMenu = document.querySelectorAll(".sidenav");
 M.Sidenav.init(slideMenu, {});
 
+// Statistics tabs
+document.addEventListener("DOMContentLoaded", function() {
+    const stats = document.querySelector(".tabs");
+    M.Tabs.init(stats, {});
+});
+
 // Modal New Entry
 document.addEventListener("DOMContentLoaded", function() {
     const newEntryWindow = document.querySelector(".modal");
