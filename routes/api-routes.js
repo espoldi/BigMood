@@ -104,7 +104,7 @@ module.exports = (app) => {
       },
       include:[db.Theme]
     }).then((result) => {
-      delete result.dataValues.password; // Excluding password and unnessary key from result
+      delPass(val); // Excluding password and unnessary key from result
       res.json(result);
     });
   });
@@ -124,7 +124,7 @@ module.exports = (app) => {
     });
   });
 
-  // PUT route for updating the theme of the current user
+  // PUT route for updating the theme of the current user **** KEPT until line 147 works
   app.put("/api/users/:id", (req, res) => {
     db.User.update(
       {
@@ -143,22 +143,25 @@ module.exports = (app) => {
     });
   });
 
-  /* POST route for updating the theme of the current user ** MORE SECURED **
+  // POST route for updating the theme of the current user ** MORE SECURED **
   app.post("/api/update", (req, res) => {
+    let user = req.body.id;
+    let newTheme = req.body.ThemeId;
     db.User.findOne(
       {
-        ThemeId: req.body.ThemeId
-      },
-      {
         where: {
-          id: req.body.id
+          id: user
         }
       }).then((result) => {
+      console.lot(result); // FOR TESTING
+      delete result.dataValues.password; // Excluding password from result: ?NECESSARY?
+      result.ThemeId = newTheme; // assign new value
+      result.save(); // save the full object
       res.send(result);
     }).catch((error) => {
       res.send(error);
     });
-  });*/
+  });
 
   // POST route for adding mood and activity to the current user
   app.post("/api/userdata", (req, res) => {
