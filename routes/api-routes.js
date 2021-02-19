@@ -30,6 +30,7 @@ module.exports = (app) => {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     })
@@ -56,6 +57,7 @@ module.exports = (app) => {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        name: req.user.email,
         email: req.user.email,
         id: req.user.id
       });
@@ -102,7 +104,7 @@ module.exports = (app) => {
       },
       include:[db.Theme]
     }).then((result) => {
-      delPass(result); // Excluding password and unnessary key from result
+      delPass(val); // Excluding password and unnessary key from result
       res.json(result);
     });
   });
@@ -122,17 +124,42 @@ module.exports = (app) => {
     });
   });
 
-  // PUT route for updating the theme of the current user
+  // PUT route for updating the theme of the current user **** KEPT until line 147 works
   app.put("/api/users/:id", (req, res) => {
     db.User.update(
-      {ThemeId: req.body.ThemeId},
-      {where: req.params.id}
-    ).then((result) => {
-      delPass(result); // Excluding password and unnessary key from result: ?NECESSARY?
+      {
+        ThemeId: req.body.ThemeId
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }).then((result) => {
+      delete result.dataValues.password; // Excluding password from result: ?NECESSARY?
       res.status(202).send(result); // Accepted status
     }).catch((error) => {
       console.log(error); // FOR TESTING
       res.status(400).send(error); // Bad request status
+    });
+  });
+
+  // POST route for updating the theme of the current user ** MORE SECURED **
+  app.post("/api/update", (req, res) => {
+    let user = req.body.id;
+    let newTheme = req.body.ThemeId;
+    db.User.findOne(
+      {
+        where: {
+          id: user
+        }
+      }).then((result) => {
+      console.lot(result); // FOR TESTING
+      delete result.dataValues.password; // Excluding password from result: ?NECESSARY?
+      result.ThemeId = newTheme; // assign new value
+      result.save(); // save the full object
+      res.send(result);
+    }).catch((error) => {
+      res.send(error);
     });
   });
 
