@@ -1,6 +1,50 @@
-<main>
-  <div>
-    <h1>BigMood Test</h1>
-    <h4>signup.handlebars</h4>
+<body>
+
+  <div class="container px-4 py-5 mx-auto">
+    <div class="card card0">
+      <div class="d-flex flex-lg-row flex-column-reverse">
+        <div class="card card1">
+          <div class="row justify-content-center my-auto">
+            <div class="col-md-8 col-10 my-5">
+              <div href="#" class="brand-logo center"><img id="logo" src="../public/assets/img/logo.png">
+              </div>
+              <h6 class="msg-info">Please create your account</h6>
+              <div class="form-group">
+                <label for="inputEmail1" class="form-control-label text-muted">Username</label>
+                <input type="email" placeholder="Email" class="form-control" id="email-input">
+              </div>
+              <form class="signup">
+                <div class="form-group"> <label for="inputPassword1"
+                    class="form-control-label text-muted">Password</label> <input type="password" placeholder="Password"
+                    class="form-control" id="password-input"></div>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <div class="row justify-content-center my-3 px-3"> <button type="submit" class="btn-block btn-color"
+                    id="signupbutton">Sign Up</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="bottom text-center mb-5">
+            <p href="#" class="sm-text mx-auto mb-3">Have an account?<button
+                class="btn-white waves-effect waves-light ml-2" id="backtologinbutton"><a
+                  href="/login">Login</a></button></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-</main>
+
+  <div class="footer">
+    <ul>
+      <p>Developed by: Qi Feng, Jeremy Rice, Delph Sunny, Emily Spoldi</p>
+    </ul>
+  </div>
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script type="text/javascript" src="js/signup.js"></script>
+</body>
