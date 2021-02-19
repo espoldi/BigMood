@@ -124,26 +124,7 @@ module.exports = (app) => {
     });
   });
 
-  // PUT route for updating the theme of the current user **** KEPT until line 147 works
-  app.put("/api/users/:id", (req, res) => {
-    db.User.update(
-      {
-        ThemeId: req.body.ThemeId
-      },
-      {
-        where: {
-          id: req.params.id
-        }
-      }).then((result) => {
-      delete result.dataValues.password; // Excluding password from result: ?NECESSARY?
-      res.status(202).send(result); // Accepted status
-    }).catch((error) => {
-      console.log(error); // FOR TESTING
-      res.status(400).send(error); // Bad request status
-    });
-  });
-
-  // POST route for updating the theme of the current user ** MORE SECURED **
+  // POST route for updating safely the theme of the current user
   app.post("/api/update", (req, res) => {
     let user = req.body.id;
     let newTheme = req.body.ThemeId;
@@ -153,13 +134,11 @@ module.exports = (app) => {
           id: user
         }
       }).then((result) => {
-      console.lot(result); // FOR TESTING
-      delete result.dataValues.password; // Excluding password from result: ?NECESSARY?
       result.ThemeId = newTheme; // assign new value
       result.save(); // save the full object
-      res.send(result);
+      res.status(202).send(result); // Accepted status
     }).catch((error) => {
-      res.send(error);
+      res.status(400).send(error); // Bad request status
     });
   });
 
@@ -170,7 +149,6 @@ module.exports = (app) => {
       activityId: req.body.activityId,
       moodId: req.body.moodId
     }).then((result) => {
-      console.log(result); // FOR TESTING
       res.status(201).send(result); // Created status
     }).catch((error) => {
       console.log(error);
