@@ -57,7 +57,7 @@ module.exports = (app) => {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        name: req.user.email,
+        name: req.user.name,
         email: req.user.email,
         id: req.user.id
       });
