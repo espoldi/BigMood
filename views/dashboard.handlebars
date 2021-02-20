@@ -84,14 +84,17 @@
             <ul class="collapsible">
                 {{#each Entries}}
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">{{entry.mood.icon}}</i>{{entry.mood}}</div>
-                    <div class="collapsible-body"><span>
-                        Date: {{entry.dateCreated}}<br>
-                        Activities:
+                    <div class="collapsible-header">
+                        <i class="material-icons">{{entry.mood.icon}}</i>{{entry.mood}}
+                    </div>
+                    <div class="collapsible-body">
+                        <span>
+                            Date: {{entry.dateCreated}}<br>
+                            Activities:
                             {{#each entry.activities}}
-                            <div class="chip">
-                                <i class="material-icons">{{entry.activity.icon}}</i>{{entry.activity}}
-                            </div>
+                                <div class="chip">
+                                    <i class="material-icons">{{entry.activity.icon}}</i>{{entry.activity}}
+                                </div>
                             {{/each}}
                         </span>
                     </div>
