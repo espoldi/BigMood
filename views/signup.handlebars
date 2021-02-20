@@ -1,5 +1,4 @@
 <body>
-
   <div class="container px-4 py-5 mx-auto">
     <div class="card card0">
       <div class="d-flex flex-lg-row flex-column-reverse">
@@ -10,8 +9,12 @@
               </div>
               <h6 class="msg-info">Please create your account</h6>
               <div class="form-group">
-                <label for="inputEmail1" class="form-control-label text-muted">Username</label>
+                <label for="inputEmail1" class="form-control-label text-muted">Email</label>
                 <input type="email" placeholder="Email" class="form-control" id="email-input">
+              </div>
+              <div class="form-group">
+                <label for="nameInput" class="form-control-label text-muted">Username</label>
+                <input type="text" placeholder="Username" class="form-control" id="name-input">
               </div>
               <form class="signup">
                 <div class="form-group"> <label for="inputPassword1"
@@ -40,11 +43,20 @@
 
   <div class="footer">
     <ul>
-      <p>Developed by: Qi Feng, Jeremy Rice, Delph Sunny, Emily Spoldi</p>
+      <p>Copyright 2021</p>
+      <p>Developed by Qi Feng, Jeremy Rice, Delph Sunny, Emily Spoldi</p>
     </ul>
   </div>
 
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script type="text/javascript" src="js/signup.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+  <script>
+    function addDarkmodeWidget() {
+      new Darkmode().showWidget();
+    }
+    window.addEventListener('load', addDarkmodeWidget);
+  </script>
 </body>

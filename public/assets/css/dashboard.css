@@ -13,3 +13,7 @@ body {
     right: 0;
     bottom: 0;
 }
+
+#author {
+    font-style: italic;
+}
