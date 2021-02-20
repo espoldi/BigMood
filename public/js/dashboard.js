@@ -31,10 +31,52 @@ $(document).ready(function () {
   const displayNew = document.querySelector(".collapsible");
   M.Collapsible.init(displayNew, {});
 
+  // Dropdown listeners
+  $("#dropdown2").click(e => {
+    newColor = e.target.firstChild.textContent;
+  });
 
   // Select menu for changing the theme
-  var elems = document.querySelectorAll("select");
-  // var instances = M.FormSelect.init(elems, options);
+  // const elems = document.querySelectorAll("select");
+  // const instances = M.FormSelect.init(elems, options);
+
+  // $("input-field.value").on("change", function () {
+  //   console.log($(this).val());
+  // });
+
+  // $(".theme.value").click(function () {
+  //   console.log($(this).val());
+  //   // console.log("Theme Selected");
+  // });
+
+  // $(".theme").click(e => {
+
+  // });
+
+  // import { MDCSelect } from '@material/select';
+
+  // const select = new MDCSelect(document.querySelector('.mdc-select'));
+
+  // select.listen('MDCSelect:change', () => {
+  //   alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
+  // });
+
+
+  // $(".darkTheme").click(function () {
+  //   console.log("Dark Theme Selected");
+  // });
+  // $(".lightTheme").click(function () {
+  //   console.log("Light Theme Selected");
+  // });
+  // $(".lightTheme").click(function () {
+  //   console.log("Light Theme Selected");
+  // });
+  // $(".lightTheme").click(function () {
+  //   console.log("Light Theme Selected");
+  // });
+  // $(".lightTheme").click(function () {
+  //   console.log("Light Theme Selected");
+  // });
 
 
   // switch () {
