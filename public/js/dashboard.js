@@ -33,7 +33,7 @@ $(document).ready(function () {
 
 
   // Select menu for changing the theme
-  var elems = document.querySelectorAll("select");
+  // var elems = document.querySelectorAll("select");
   // var instances = M.FormSelect.init(elems, options);
 
 
