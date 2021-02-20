@@ -1,10 +1,28 @@
 $(document).ready(function () {
+  let userName;
+  let userId;
+  let userData = [];
+
+  // Get the current user name and id
+  $.get("/api/user_data").then(function (data) {
+    userName = data.name; // current username
+    userId= data.id; // current user id
+    $(".current-user").text(userName);
+  });
+
+  // Get all previous data from current user
+  $.get(`/api/userdata/${userId}`).then(function (data) {
+    userData = data;
+    console.log(userData); //FOR TESTING
+  }).catch((err) => {
+    console.log(JSON.stringify(err));
+  });
+
   // Side Nav Menu
   const slideMenu = document.querySelectorAll(".sidenav");
   M.Sidenav.init(slideMenu, {});
 
   // Statistics tabs
-
   const stats = $(".tabs");
   M.Tabs.init(stats, {});
   // Get Random quote at loading page
