@@ -86,20 +86,15 @@
     <div class="row">
         <div class="col s12 m12 l12">
             <ul class="collapsible">
-                {{#each Entries}}
+                {{#each entry}}
                 <li>
                     <div class="collapsible-header">
-                        <i class="material-icons">{{entry.mood.icon}}</i>{{entry.mood}}
+                        <i class="material-icons">{{mood.icon}}</i>{{mood.name}}
                     </div>
                     <div class="collapsible-body">
                         <span>
-                            Date: {{entry.dateCreated}}<br>
-                            Activities:
-                            {{#each entry.activities}}
-                                <div class="chip">
-                                    <i class="material-icons">{{entry.activity.icon}}</i>{{entry.activity}}
-                                </div>
-                            {{/each}}
+                            Date: {{entry.createdAt}}<br>
+                            Activities: <div class="chip"><i class="material-icons">{{activity.icon}}</i>{{activity.name}}</div>
                         </span>
                     </div>
                 </li>
