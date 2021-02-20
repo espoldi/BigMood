@@ -88,7 +88,7 @@ module.exports = (app) => {
 
   // GET route for getting all of the moods
   app.get("/api/moods", (req, res) => {
-    db.Mood.findAll({})
+    db.mood.findAll({})
       .then((result) => {
         res.json(result);
       });
@@ -100,7 +100,7 @@ module.exports = (app) => {
       where: {
         id: req.params.id
       },
-      include:[db.Theme]
+      include: [db.Theme]
     }).then((result) => {
       delPass(result); // Excluding password and unnessary key from result
       res.json(result);
@@ -113,7 +113,7 @@ module.exports = (app) => {
       where: {
         userId: req.params.userId
       },
-      include:[db.User, db.Mood, db.Activity]
+      include: [db.User, db.Mood, db.Activity]
     }).then((result) => {
       result.forEach((val) => {
         delPass2(val); // Excluding password and unnessary key from result
@@ -125,8 +125,8 @@ module.exports = (app) => {
   // PUT route for updating the theme of the current user
   app.put("/api/users/:id", (req, res) => {
     db.User.update(
-      {ThemeId: req.body.ThemeId},
-      {where: req.params.id}
+      { ThemeId: req.body.ThemeId },
+      { where: req.params.id }
     ).then((result) => {
       delPass(result); // Excluding password and unnessary key from result: ?NECESSARY?
       res.status(202).send(result); // Accepted status
@@ -155,7 +155,7 @@ module.exports = (app) => {
 
   // GET route for getting all of the users with theme
   app.get("/api/users", (req, res) => {
-    db.User.findAll({include:[db.Theme]})
+    db.User.findAll({ include: [db.Theme] })
       .then((result) => {
         result.forEach((val) => {
           delPass(val); // Excluding password and unnessary key from result
