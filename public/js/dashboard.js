@@ -3,10 +3,10 @@ const slideMenu = document.querySelectorAll(".sidenav");
 M.Sidenav.init(slideMenu, {});
 
 // Statistics tabs
-document.addEventListener("DOMContentLoaded", function() {
-  const stats = document.querySelector(".tabs");
+$(document).ready(function () {
+  const stats = $(".tabs");
   M.Tabs.init(stats, {});
-  // GetRandom quote at loading page
+  // Get Random quote at loading page
   $.get("/api/quotes").then(function(data) {
     let quote;
     quote = data[Math.floor(Math.random() * data.length)];
