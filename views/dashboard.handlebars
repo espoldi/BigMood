@@ -69,8 +69,12 @@
                         <select>
                             <option value="">Choose your option</option>
                             <option value="1">Date</option>
-                            <option value="2">Mood</option>
-                            <option value="3">Activity</option>
+                            {{#each mood}}
+                            <option value="{{name}}">{{name}}</option>
+                            {{/each}}
+                            {{#each activities}}
+                            <option value="{{name}}">{{activity.name}}</option>
+                            {{/each}}
                         </select>
 
                     </div>
