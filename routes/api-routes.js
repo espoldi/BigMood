@@ -37,7 +37,7 @@ module.exports = (app) => {
       .then(() => {
         res.redirect(307, "/api/login"); // Temporary Redirect status
       })
-      .catch(function (err) {
+      .catch((err) => {
         res.status(401).json(err); // Unauthorized status
       });
   });
@@ -138,7 +138,11 @@ module.exports = (app) => {
       result.save(); // save the full object
       res.status(202).send(result); // Accepted status
     }).catch((error) => {
-      res.status(400).send(error); // Bad request status
+      console.log(error);
+      res.status(400).send( // Bad request status
+        {
+          error: "Something went wrong. Please try again later."
+        });
     });
   });
 
@@ -152,7 +156,10 @@ module.exports = (app) => {
       res.status(201).send(result); // Created status
     }).catch((error) => {
       console.log(error);
-      res.status(400).send(error); // Bad request status
+      res.status(400).send( // Bad request status
+        {
+          error: "Something went wrong. Please try again later."
+        });
     });
   });
 

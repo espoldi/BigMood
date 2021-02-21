@@ -1,56 +1,51 @@
-<body>
-  <div class="container px-4 py-5 mx-auto">
-    <div class="card card0" id="logincard">
-      <div class="d-flex flex-lg-row flex-column-reverse">
-        <div class="card card1">
-          <div class="row justify-content-center my-auto">
-            <div class="col-md-8 col-6 my-5">
-              <div href="#" class="brand-logo center"><img id="logo" src="../public/assets/img/logo.png">
-              </div>
-
-              <h6 class="msg-info">Please login to your account</h6>
-              <form class="login">
-                <div class="form-group">
-                  <label for="inputEmail1" class="form-control-label text-muted">Email</label>
-                  <input type="email" placeholder="Email" class="form-control" id="email-input">
-                </div>
-                <div class="form-group"> <label for="inputPassword1"
-                    class="form-control-label text-muted">Password</label> <input type="password" placeholder="Password"
-                    class="form-control" id="password-input"></div>
-                <div class="row justify-content-center my-3 px-3"> <button type="submit"
-                    class="waves-effect waves-light btn-color ml-2" id="loginbutton">Login</button>
-                </div>
-              </form>
+<div class="container">
+  <div class="card card0" id="logincard">
+    <div class="d-flex flex-lg-row">
+      <div class="card card1">
+        <div class="row">
+          <div class="col s11">
+            <div href="#" class="brand-logo center"><img id="logo" src="../assets/img/logo.jpeg">
             </div>
 
-          </div>
-
-
-          <div class="bottom text-center mb-5">
-            <p href="#" class="justify-content-center my-3 px-3">Need an account?<button type="submit"
-                class="btn-white waves-effect waves-light ml-2" id="createnewbutton"><a href="/">Create
-                  new</a></button></p>
+            <h6 class="msg-info">Please login to your account</h6>
+            <form class="login">
+              <div class="form-group">
+                <label for="inputEmail1" class="form-control-label">Email</label>
+                <input type="email" placeholder="Email" class="form-control" id="email-input">
+              </div>
+              <div class="form-group"> <label for="inputPassword1" class="form-control-label">Password</label> <input
+                  type="password" placeholder="Password" class="form-control" id="password-input"></div>
+              <div class="row"> <button type="submit" class="waves-effect waves-light btn-color"
+                  id="loginbutton">Login</button>
+              </div>
+              <div style="position: relative">
+                <div id="toast-container"></div>
+              </div>
+            </form>
           </div>
         </div>
-
+        <div class="bottom center-align">
+          <p href="#">Need an account?<button type="submit" class="btn-white waves-effect waves-light"
+              id="createnewbutton"><a href="/">Create
+                new</a></button></p>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="footer">
-    <ul>
-      <p>Copyright 2021</p>
-      <p>Developed by Qi Feng, Jeremy Rice, Delph Sunny, Emily Spoldi</p>
-    </ul>
-  </div>
+<footer class="row white-text center-align">
+  <p>©Copyright 2021</p>
+  <p>Developed by Qi Feng, Jeremy Rice, Delph Sunny, Emily Spoldi</p>
+</footer>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-  <script type="text/javascript" src="js/login.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-  <script>
-    function addDarkmodeWidget() {
-      new Darkmode().showWidget();
-    }
-    window.addEventListener('load', addDarkmodeWidget);
-  </script>
+
+<script type="text/javascript" src="js/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode().showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
 </body>
