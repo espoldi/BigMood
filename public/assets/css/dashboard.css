@@ -17,3 +17,19 @@ body {
 #author {
     font-style: italic;
 }
+
+.profile {
+    margin-bottom: 2rem;
+}
+
+.dev-team {
+    margin-bottom: 2rem;
+}
+
+h5 {
+    margin-bottom: 1.5rem;  
+}
+
+.logo-nav {
+    padding: 25px;
+}

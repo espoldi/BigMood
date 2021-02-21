@@ -7,28 +7,23 @@
 </nav>
 
 {{!-- Side Nav Bar --}}
-<ul id="slide-out" class="sidenav">
+<ul id="slide-out" class="sidenav center-align ">
   {{!-- User Info Section --}}
   <li>
-    <div class="user-view">
-      <div class="background">
-        <img src="">
+    <div class="user-view center">
+      <div class="center logo-nav">
+        <img src="../assets/img/logo.jpg" alt="logo" class="circle center">
       </div>
-      <a href="#user"><i class="material-icons">account_circle</i>
-        <p class="current-user"></p>
-      </a>
-      <a href="#name"><span class="white-text name"></span></a>
-      <a href="#email"><span class="white-text email"></span></a>
+      <h5>Signed in as </h5>
+      <h6 class="current-user"></h6>
     </div>
   </li>
-  <li>
-    <div class="divider"></div>
-  </li>
+
   {{!-- Theme Selection Section --}}
   <div class="input-field theme col s12">
     <h5>Change Your Theme</h5>
     {{!-- Color Dropdown Trigger --}}
-    <a class='dropdown-trigger btn' href='#' data-target="dropdown1">Theme<i class="large material-icons">
+    <a class='dropdown-trigger btn-large' href='#' data-target="dropdown1">Theme<i class="large material-icons">
         arrow_drop_down</i></a>
     {{!-- Color Dropdown Structure --}}
     <ul id='dropdown1' class='dropdown-content'>
@@ -39,6 +34,43 @@
       <li><a href="#!" data-id="5" class="greenTheme">Green</a></li>
     </ul>
   </div>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li>
+    <div class="user-view">
+      <h5>Meet The Dev Team</h5>
+      <div class="row dev-team">
+        <div class="profile col s5" onclick=location.href="https://github.com/espoldi">
+          <img
+            src="https://avatars0.githubusercontent.com/u/72423431?s=460&u=e8e36f9d7310daff1a5c3313436f30e2a34b495c&v=4"
+            alt="girl with glasses" class="circle responsive-img">
+        </div>
+        <div class="profile col s5" onclick=location.href="https://github.com/jdavidrice">
+          <img src="https://avatars.githubusercontent.com/u/24283989?s=400&v=4" alt="" class="circle responsive-img">
+        </div>
+        <div class="profile col s5" onclick=location.href="https://github.com/qifeng86">
+          <img
+            src="https://avatars.githubusercontent.com/u/65049795?s=400&u=65b453863f34b661f4c3c402cb3a54829a892b83&v=4"
+            alt="" class="circle responsive-img">
+        </div>
+        <div class="profile col s5" onclick=location.href="https://github.com/Delph-Sunny">
+          <img
+            src="https://avatars.githubusercontent.com/u/72717827?s=400&u=d48b85559ffaa993b95bb39f151a97ed4a369a6c&v=4"
+            alt="mountain girl" class="circle responsive-img">
+        </div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li>
+    <h5>
+      <a href="/logout" title="Logout"><i class="material-icons">logout</i> Logout</a>
+    </h5>
+  </li>
+
 </ul>
 
 {{!-- Dashboard Content --}}
@@ -73,53 +105,53 @@
     </div>
   </div>
 
-    <div class="row">
-        <div class="col s12 m12 l12">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">All Entries</span>
-                    <div class="input-field col s6">
-                        <label>Sort By:</label>
-                        <select>
-                            <option value="">Choose your option</option>
-                            <option value="1">Date</option>
-                            {{#each mood}}
-                            <option value="{{name}}">{{name}}</option>
-                            {{/each}}
-                            {{#each activities}}
-                            <option value="{{name}}">{{activity.name}}</option>
-                            {{/each}}
-                        </select>
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">All Entries</span>
+          <div class="input-field col s6">
+            <label>Sort By:</label>
+            <select>
+              <option value="">Choose your option</option>
+              <option value="1">Date</option>
+              {{#each mood}}
+              <option value="{{name}}">{{name}}</option>
+              {{/each}}
+              {{#each activities}}
+              <option value="{{name}}">{{activity.name}}</option>
+              {{/each}}
+            </select>
 
-                    </div>
-                </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
+</div>
 
-    <div class="row">
-        <div class="col s12 m12 l12">
-            <ul class="collapsible">
-                {{#each entry}}
-                <li>
-                    <div class="collapsible-header">
-                        <i class="material-icons">{{mood.icon}}</i>{{mood.name}}
-                    </div>
-                    <div class="collapsible-body">
-                        <span>
-                            Date: {{entry.createdAt}}<br>
-                            Activities: <div class="chip"><i class="material-icons">{{activity.icon}}</i>{{activity.name}}</div>
-                        </span>
-                    </div>
-                </li>
-                {{/each}}
-            </ul>
+<div class="row">
+  <div class="col s12 m12 l12">
+    <ul class="collapsible">
+      {{#each entry}}
+      <li>
+        <div class="collapsible-header">
+          <i class="material-icons">{{mood.icon}}</i>{{mood.name}}
         </div>
-    </div>
+        <div class="collapsible-body">
+          <span>
+            Date: {{entry.createdAt}}<br>
+            Activities: <div class="chip"><i class="material-icons">{{activity.icon}}</i>{{activity.name}}</div>
+          </span>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
   </div>
+</div>
+</div>
 </div>
 
 {{!-- Modal New Mood Entry --}}
