@@ -42,6 +42,7 @@ $(document).ready(function () {
         window.location.replace("/dashboard");
       }) // If there's an error, handle it by throwing up an alert
       .catch((err) => { // If there's an error, log the error
+        console.log(err); // FOR TESTING
         if (err.status === 401) {
           M.toast({ html: "The email already exists or you forgot to enter the username. Please try again or go to the login page.", classes: "rounded" });
         }
