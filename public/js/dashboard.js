@@ -9,7 +9,7 @@ $(document).ready(function () {
   // Get the current user name and id
   $.get("/api/user_data").then(function (data) {
     userName = data.name; // current username
-    userId = data.id; // current user id
+    userId= data.id; // current user id
     $(".current-user").text(userName);
 
     console.log(userId);
@@ -129,8 +129,8 @@ $(document).ready(function () {
 
 
       const newUserData = {
-        moodId: document.querySelectorAll('input[name="moodgroup"]'),
-        activityId: document.querySelectorAll('input[name="activitygroup"]'),
+        moodId: document.querySelectorAll("input[name=\"moodgroup\"]"),
+        activityId: document.querySelectorAll("input[name=\"activitygroup\"]"),
       };
       console.log(newUserData);
 
