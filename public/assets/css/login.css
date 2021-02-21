@@ -60,8 +60,8 @@ button:focus {
 }
 
 #logo {
-  width: 70px;
-  height: 60px
+  height: 6rem;
+  width: 6rem;
 }
 
 .heading {
@@ -175,15 +175,6 @@ a:hover {
   }
 }
 
-.footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  font-weight: bold;
-  
-}
-
 li {
   
   list-style:none;
@@ -197,7 +188,13 @@ h3 {
   text-align: center;
 }
 
-#logo {
-  height: 500;
-  width: 500;
+footer {
+  left: 0;
+  bottom: 0; 
+  margin-top: 2rem; 
+}
+
+footer p {
+  margin-bottom: 0;
+  margin-top: 0;
 }
