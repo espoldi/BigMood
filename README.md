@@ -93,7 +93,7 @@ Link to the app :mag:: [link](https://bigmoodapp.herokuapp.com/)
 
 ## Credits  
  
-:warning: Author of any images, icons, which are not in the libraries or any helper  
+Icon made by Freepik from [www.flaticon.com](https://www.flaticon.com/)
 
 *   [Return to Top](#BigMood)  
 

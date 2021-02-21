@@ -1,5 +1,4 @@
 <body>
-
   <div class="container">
     <div class="card card0">
       <div>
@@ -9,15 +8,16 @@
               <div href="#" class="brand-logo center"><img id="logo" src="../public/assets/img/logo.png">
               </div>
               <h6 class="msg-info">Please create your account</h6>
-              <div class="form-group">
-                <label for="inputEmail1" class="form-control-label">Email</label>
-                <input type="email" placeholder="Email" class="form-control" id="email-input">
-              </div>
-              <div class="form-group">
-                <label for="nameInput" class="form-control-label">Username</label>
-                <input type="text" placeholder="Username" class="form-control" id="name-input">
-              </div>
               <form class="signup">
+                <div class="form-group">
+                  <label for="inputEmail1" class="form-control-label">Email</label>
+                  <input type="email" placeholder="Email" class="form-control" id="email-input">
+                </div>
+                <div class="form-group">
+                  <label for="nameInput" class="form-control-label">Username</label>
+                  <input type="text" placeholder="Username" class="form-control" id="name-input">
+                </div>
+
                 <div class="form-group"> <label for="inputPassword1" class="form-control-label">Password</label> <input
                     type="password" placeholder="Password" class="form-control" id="password-input"></div>
                 <div style="display: none" id="alert" class="alert alert-danger" role="alert">
@@ -50,4 +50,12 @@
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script type="text/javascript" src="js/signup.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+  <script>
+    function addDarkmodeWidget() {
+      new Darkmode().showWidget();
+    }
+    window.addEventListener('load', addDarkmodeWidget);
+  </script>
 </body>
