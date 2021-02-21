@@ -8,7 +8,7 @@ module.exports = (app) => {
   // function to delete the display of the password and ThemeId
   const delPass = (val) => {
     delete val.dataValues.password;
-    delete val.dataValues.ThemeId;
+    // delete val.dataValues.ThemeId;
     return val;
   };
 
@@ -37,16 +37,11 @@ module.exports = (app) => {
       .then(() => {
         res.redirect(307, "/api/login"); // Temporary Redirect status
       })
-      .catch(function (err) {
+      .catch((err) => {
         res.status(401).json(err); // Unauthorized status
       });
   });
 
-  // Route for logging user out
-  app.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-  });
 
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", (req, res) => {
@@ -104,7 +99,7 @@ module.exports = (app) => {
       },
       include:[db.Theme]
     }).then((result) => {
-      delPass(val); // Excluding password and unnessary key from result
+      delPass(result); // Excluding password and unnessary key from result
       res.json(result);
     });
   });
@@ -138,7 +133,11 @@ module.exports = (app) => {
       result.save(); // save the full object
       res.status(202).send(result); // Accepted status
     }).catch((error) => {
-      res.status(400).send(error); // Bad request status
+      console.log(error);
+      res.status(400).send( // Bad request status
+        {
+          error: "Something went wrong. Please try again later."
+        });
     });
   });
 
@@ -152,7 +151,10 @@ module.exports = (app) => {
       res.status(201).send(result); // Created status
     }).catch((error) => {
       console.log(error);
-      res.status(400).send(error); // Bad request status
+      res.status(400).send( // Bad request status
+        {
+          error: "Something went wrong. Please try again later."
+        });
     });
   });
 
