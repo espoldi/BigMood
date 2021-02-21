@@ -73,7 +73,7 @@ $(document).ready(function () {
   const stats = $(".tabs");
   M.Tabs.init(stats, {});
   // Get Random quote at loading page
-  $.get("/api/quotes").then(function (data) {
+  $.get("/api/quotes").then( (data) => {
     let quote;
     quote = data[Math.floor(Math.random() * data.length)];
     $("#new-quote").text(quote.body);
