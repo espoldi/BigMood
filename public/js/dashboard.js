@@ -120,7 +120,7 @@ $(document).ready(function () {
   //   if (theme.classList.contains
   // });
 
-
+  //POST API to create user data
   const postmoodactivity = document.getElementById("createform");
 
   if (postmoodactivity) {
