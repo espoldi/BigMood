@@ -1,3 +1,8 @@
+:root {
+    --primary-bg-color: #400080; /*Dark Blue Color */
+    --primary-color: #ffffff; /* White Color */
+  }
+
 body {
     background-color: black;
 }
@@ -17,3 +22,24 @@ body {
 #author {
     font-style: italic;
 }
+
+.profile {
+    margin-bottom: 2rem;
+}
+
+.dev-team {
+    margin-bottom: 2rem;
+}
+
+h5 {
+    margin-bottom: 1.5rem;  
+}
+
+.logo-nav {
+    padding: 25px;
+}
+
+.hero {
+    background: var(--primary-bg-color);
+    color: var(--primary-color);
+ }
