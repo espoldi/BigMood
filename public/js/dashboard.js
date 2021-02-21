@@ -129,8 +129,8 @@ $(document).ready(function () {
 
 
       const newUserData = {
-        moodId: document.querySelectorAll('input[name="moodgroup"]'),
-        activityId: document.querySelectorAll('input[name="activitygroup"]'),
+        moodId: document.querySelectorAll("input[name=\"moodgroup\"]"),
+        activityId: document.querySelectorAll("input[name=\"activitygroup\"]"),
       };
       console.log(newUserData);
 
