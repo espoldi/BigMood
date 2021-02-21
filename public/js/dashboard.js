@@ -9,7 +9,7 @@ $(document).ready(function () {
   // Get the current user name and id
   $.get("/api/user_data").then(function (data) {
     userName = data.name; // current username
-    userId = data.id; // current user id
+    userId= data.id; // current user id
     $(".current-user").text(userName);
 
     console.log(userId);
@@ -95,61 +95,6 @@ $(document).ready(function () {
   // Collapsible for all entries
   const displayNew = document.querySelector(".collapsible");
   M.Collapsible.init(displayNew, {});
-
-
-
-  // Select menu for changing the theme
-  var elems = document.querySelectorAll("select");
-  // var instances = M.FormSelect.init(elems, options);
-
-
-  // switch () {
-  //   case :
-
-  //     break;
-  //   case :
-
-  //     break;
-
-  // }
-
-
-  // const theme = $(".theme");
-  // M.Theme.init(theme, {});
-  // $.post("/api/update").then(function (data) {
-  //   if (theme.classList.contains
-  // });
-
-
-  const postmoodactivity = document.getElementById("createform");
-
-  if (postmoodactivity) {
-    postmoodactivity.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-
-      const newUserData = {
-        moodId: document.querySelectorAll('input[name="moodgroup"]'),
-        activityId: document.querySelectorAll('input[name="activitygroup"]'),
-      };
-      console.log(newUserData);
-
-      fetch("/api/userdata", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(newUserData),
-      }).then((response) => {
-
-
-        console.log("Created a new user data!");
-        location.reload();
-      });
-    });
-  }
 
 
 
