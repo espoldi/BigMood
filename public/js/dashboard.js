@@ -129,25 +129,6 @@ $(document).ready(function () {
   var elems = document.querySelectorAll("select");
   // var instances = M.FormSelect.init(elems, options);
 
-
-  // switch () {
-  //   case :
-
-  //     break;
-  //   case :
-
-  //     break;
-
-  // }
-
-
-  // const theme = $(".theme");
-  // M.Theme.init(theme, {});
-  // $.post("/api/update").then(function (data) {
-  //   if (theme.classList.contains
-  // });
-
-
   const postmoodactivity = document.getElementById("createform");
 
   if (postmoodactivity) {
