@@ -6,9 +6,9 @@ $(document).ready(function () {
 
   M.AutoInit(); // Initiate dropdown
 
-  //* Get the current theme for the current user
+  // Get the current theme for the current user
   function getTheme(user){
-    console.log("userId in getTheme ", user);  //FOR TESTING
+    console.log("userId in getTheme ", user); //FOR TESTING
     $.get(`/api/users/${user}`).then(function (data) {
       let userTheme = data.ThemeId; // current user Theme
       console.log("usertheme in getTheme", userTheme); //FOR TESTING
@@ -19,7 +19,7 @@ $(document).ready(function () {
 
   // Function to change color class based on the themeId
   function displayTheme(theme) {
-    console.log("themeId in displaytheme ",themeId);  //FOR TESTING
+    console.log("themeId in displaytheme ",themeId); //FOR TESTING
     const themeSwitch = $(".theme-switch");
     let color;
     switch (theme) {
@@ -58,9 +58,9 @@ $(document).ready(function () {
     userName = data.name; // current username
     userId= data.id; // current user id
     $(".current-user").text(userName);
-    console.log("First userId ", userId);   //FOR TESTING
+    console.log("First userId ", userId); //FOR TESTING
     themeId= getTheme(userId);
-    displayTheme(userTheme);
+    displayTheme(themeId);
   });
 
 

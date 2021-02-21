@@ -8,7 +8,7 @@ module.exports = (app) => {
   // function to delete the display of the password and ThemeId
   const delPass = (val) => {
     delete val.dataValues.password;
-    delete val.dataValues.ThemeId;
+    // delete val.dataValues.ThemeId;
     return val;
   };
 
@@ -99,7 +99,7 @@ module.exports = (app) => {
       },
       include:[db.Theme]
     }).then((result) => {
-      delPass(val); // Excluding password and unnessary key from result
+      delPass(result); // Excluding password and unnessary key from result
       res.json(result);
     });
   });
