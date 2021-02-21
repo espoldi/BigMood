@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 $(document).ready(function () {
   let userName, themeName;
   let userId, themeId;
