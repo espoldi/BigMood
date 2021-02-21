@@ -14,6 +14,30 @@ body {
     bottom: 0;
 }
 
-#author {
-    font-style: italic;
+.material-icons {
+    font-size: 60px;
 }
+
+.iconbtn {
+    font-size: 60px;
+    background-color: lightgray;
+    color: black;
+}
+
+
+.activitybtn {
+
+    font-size: 60px;
+    background-color: lightgray;
+    color: black;
+
+}
+
+
+.iconbtn:hover {
+    background-color: RoyalBlue;
+  }
+
+  .activitybtn:hover {
+    background-color: RoyalBlue;
+  }
