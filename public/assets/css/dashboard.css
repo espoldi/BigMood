@@ -1,3 +1,8 @@
+:root {
+    --primary-bg-color: #400080; /*Dark Blue Color */
+    --primary-color: #ffffff; /* White Color */
+  }
+
 body {
     background-color: black;
 }
@@ -33,3 +38,8 @@ h5 {
 .logo-nav {
     padding: 25px;
 }
+
+.hero {
+    background: var(--primary-bg-color);
+    color: var(--primary-color);
+ }
