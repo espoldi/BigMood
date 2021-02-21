@@ -9,7 +9,7 @@ $(document).ready(function () {
   // Get the current user name and id
   $.get("/api/user_data").then(function (data) {
     userName = data.name; // current username
-    userId = data.id; // current user id
+    userId= data.id; // current user id
     $(".current-user").text(userName);
 
     console.log(userId);
