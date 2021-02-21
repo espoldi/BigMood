@@ -6,7 +6,7 @@ $(document).ready(function () {
   // Get the current user name and id
   $.get("/api/user_data").then(function (data) {
     userName = data.name; // current username
-    userId= data.id; // current user id
+    userId = data.id; // current user id
     $(".current-user").text(userName);
   });
 
@@ -73,6 +73,34 @@ $(document).ready(function () {
   // });
 
 
+  const postmoodactivity = document.getElementById("createform");
 
+  if (postmoodactivity) {
+    postmoodactivity.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+
+      const newUserData = {
+        moodId: document.querySelectorAll('input[name="moodgroup"]'),
+        activityId: document.querySelectorAll('input[name="activitygroup"]'),
+      };
+      console.log(newUserData);
+
+      fetch("/api/userdata", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(newUserData),
+      }).then((response) => {
+
+
+        console.log("Created a new user data!");
+        location.reload();
+      });
+    });
+  }
 
 });
