@@ -45,7 +45,8 @@ $(document).ready(function () {
   // Get the current theme for the current user
   function getTheme(user){
     $.get(`/api/users/${user}`).then(function (data) {
-      let userTheme = data.ThemeId; // current user Theme
+      let userTheme = JSON.parse(data.Theme.id); // current user Theme
+      console.log("userTheme", userTheme);
       displayTheme(userTheme);
       return userTheme;
     });
@@ -63,9 +64,9 @@ $(document).ready(function () {
   });
 
 
-  /* Get all previous data from current user
+  /*Get all previous data from current user
   $.get(`/api/userdata/${userId}`).then(function (data) {
-    userData = data;
+    userData = JSON.parse(data);
     console.log(userData); //FOR TESTING
   }).catch((err) => {
     console.log(JSON.stringify(err));
@@ -89,7 +90,6 @@ $(document).ready(function () {
     $.post("/api/update", updatingUser).then((data) => {
       console.log(themeId);
       location.reload("dashboard");
-
     }).catch((err) => {
       console.log(JSON.stringify(err));
     });
