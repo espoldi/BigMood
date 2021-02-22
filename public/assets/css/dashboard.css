@@ -1,11 +1,17 @@
 
 body {
-    background-color: black;
+    background-color: white;
+}
+
+#logo {
+  height: 6rem;
+  width: 6rem;
 }
 
 #dashContent {
     background-color: lightgray;
     align-content: center;
+    margin-top: 1rem;
 }
 
 #modalButton {
@@ -19,11 +25,20 @@ body {
 }
 
 .profile {
-    margin-bottom: 2rem;
+    width: 7rem;
+    height: 7rem;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    overflow: auto;
 }
 
 .dev-team {
     margin-bottom: 2rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 
 h5 {

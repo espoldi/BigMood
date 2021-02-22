@@ -12,23 +12,24 @@
   <li>
     <div class="user-view center">
       <div class="center logo-nav">
-        <img src="../assets/img/logo.jpg" alt="logo" class="circle center">
+        <div href="#" class="brand-logo center"><img id="logo" src="../assets/img/logo.jpg">
+        </div>
+        <h5>Signed in as </h5>
+        <h6 class="current-user"></h6>
       </div>
-      <h5>Signed in as </h5>
-      <h6 class="current-user"></h6>
-    </div>
   </li>
 
   {{!-- Theme Selection Section --}}
   <div class="input-field theme col s12">
     <h5>Change Your Theme</h5>
     {{!-- Color Dropdown Trigger --}}
-    <a class='dropdown-trigger btn-large' href='#' data-target="dropdown1">Theme<i class="large material-icons">
+    <a class='dropdown-trigger btn-large theme-switch' href='#' data-target="dropdown1">Theme<i
+        class="large material-icons theme-switch">
         arrow_drop_down</i></a>
     {{!-- Color Dropdown Structure --}}
     <ul id='dropdown1' class='dropdown-content'>
-      <li><a href="#!" data-id="1" class="lightTheme">Default</a></li>
-      <li><a href="#!" data-id="2" class="darkTheme">Dark</a></li>
+      <li><a href="#!" data-id="1" class="lightTheme">Grey</a></li>
+      <li><a href="#!" data-id="2" class="darkTheme">Black</a></li>
       <li><a href="#!" data-id="3" class="redTheme">Red</a></li>
       <li><a href="#!" data-id="4" class="blueTheme">Blue</a></li>
       <li><a href="#!" data-id="5" class="greenTheme">Green</a></li>
@@ -40,24 +41,25 @@
   <li>
     <div class="user-view">
       <h5>Meet The Dev Team</h5>
-      <div class="row dev-team">
-        <div class="profile col s5" onclick=location.href="https://github.com/espoldi">
+      <div class="row dev-team theme-switch">
+        <div class="profile" onclick=location.href="https://github.com/espoldi">
           <img
             src="https://avatars0.githubusercontent.com/u/72423431?s=460&u=e8e36f9d7310daff1a5c3313436f30e2a34b495c&v=4"
-            alt="girl with glasses" class="circle responsive-img">
+            alt="Link to Emily Spoldi's GitHub" class="circle">
         </div>
-        <div class="profile col s5" onclick=location.href="https://github.com/jdavidrice">
-          <img src="https://avatars.githubusercontent.com/u/24283989?s=400&v=4" alt="" class="circle responsive-img">
+        <div class="profile" onclick=location.href="https://github.com/jdavidrice">
+          <img src="https://avatars.githubusercontent.com/u/24283989?s=400&v=4" alt="Link to Jeremy Rice's GitHub"
+            class="circle">
         </div>
-        <div class="profile col s5" onclick=location.href="https://github.com/qifeng86">
+        <div class="profile" onclick=location.href="https://github.com/qifeng86">
           <img
             src="https://avatars.githubusercontent.com/u/65049795?s=400&u=65b453863f34b661f4c3c402cb3a54829a892b83&v=4"
-            alt="" class="circle responsive-img">
+            alt="Link to Qi Feng's GitHub" class="circle">
         </div>
-        <div class="profile col s5" onclick=location.href="https://github.com/Delph-Sunny">
+        <div class="profile" onclick=location.href="https://github.com/Delph-Sunny">
           <img
             src="https://avatars.githubusercontent.com/u/72717827?s=400&u=d48b85559ffaa993b95bb39f151a97ed4a369a6c&v=4"
-            alt="mountain girl" class="circle responsive-img">
+            alt="Link to Delph-Sunny's GitHub" class="circle">
         </div>
       </div>
     </div>
@@ -74,7 +76,7 @@
 </ul>
 
 {{!-- Dashboard Content --}}
-<div class="container" id="dashContent">
+<div class="container theme-switch" id="dashContent">
   <div class="row">
     <div class="col s12 m12 l12">
       <div class="card center">
@@ -154,9 +156,9 @@
 </div>
 
 {{!-- Modal New Mood Entry --}}
-<button class="btn indigo hoverable modal-trigger" data-target="newEntry" id="modalButton">
-  <i class="material-icons">add</i>
-  </button>
+<button class="btn theme-switch hoverable modal-trigger" data-target="newEntry" id="modalButton"><i
+    class="material-icons">add</i></button>
+
 <div class="modal" id="newEntry">
   <div class="modal-content">
     <form id="createform">
@@ -201,14 +203,6 @@
 
   </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-<script>
-  function addDarkmodeWidget() {
-    new Darkmode().showWidget();
-  }
-  window.addEventListener('load', addDarkmodeWidget);
-</script>
 
 {{!-- Link to Dashboard JS --}}
 <script src="./js/dashboard.js"></script>

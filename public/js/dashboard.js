@@ -13,7 +13,7 @@ $(document).ready(function () {
     const themeText = $(".theme-text");
     let color;
     switch (theme) {
-    case 2: color = "dark";
+    case 2: color = "black";
       break;
     case 3: color = "red";
       break;
@@ -21,26 +21,27 @@ $(document).ready(function () {
       break;
     case 5: color = "green";
       break;
-    default: color = "";
+    default: color = "grey";
     }
-    // Change background color
-    themeSwitch.each(function (){
-      if((themeSwitch.hasClass("red"))){
+    themeSwitch.each(function () {
+      if ((themeSwitch.hasClass("red"))) {
         themeSwitch.removeClass("red");
       }
-      if((themeSwitch.hasClass("blue"))){
+      if ((themeSwitch.hasClass("blue"))) {
         themeSwitch.removeClass("blue");
       }
-      if((themeSwitch.hasClass("green"))){
+      if ((themeSwitch.hasClass("green"))) {
         themeSwitch.removeClass("green");
       }
-      if((themeSwitch.hasClass("dark"))){
-        themeSwitch.removeClass("dark");
+      if ((themeSwitch.hasClass("black"))) {
+        themeSwitch.removeClass("black");
       }
-      if (color){
-        themeSwitch.addClass(color);
+      if ((themeSwitch.hasClass("grey"))) {
+        themeSwitch.removeClass("grey");
       }
+      themeSwitch.addClass(color);
     });
+
     // Change text color
     themeText.each(function() {
       if((themeText.hasClass("red-text"))){
@@ -52,18 +53,19 @@ $(document).ready(function () {
       if((themeText.hasClass("green-text"))){
         themeText.removeClass("green-text");
       }
-      if((themeText.hasClass("dark-text"))){
-        themeText.removeClass("dark-text");
+      if((themeText.hasClass("black-text"))){
+        themeText.removeClass("black-text");
       }
-      if(color){
-        themeText.addClass(`${color}-text`);
+      if ((themeText.hasClass("grey"))) {
+        themeText.removeClass("grey");
       }
+      themeText.addClass(`${color}-text`);
     });
   }
 
 
   // Get the current theme for the current user
-  function getTheme(user){
+  function getTheme(user) {
     $.get(`/api/users/${user}`).then(function (data) {
       let userTheme = data.Theme.id; // current user Theme
       console.log("userTheme", userTheme);
@@ -77,10 +79,10 @@ $(document).ready(function () {
   // Get the current user name and id
   $.get("/api/user_data").then(function (data) {
     userName = data.name; // current username
-    userId= data.id; // current user id
+    userId = data.id; // current user id
     $(".current-user").text(userName);
     console.log("First userId ", userId); //FOR TESTING
-    themeId= getTheme(userId);
+    themeId = getTheme(userId);
   });
 
 
@@ -111,7 +113,7 @@ $(document).ready(function () {
   const stats = $(".tabs");
   M.Tabs.init(stats, {});
   // Get Random quote at loading page
-  $.get("/api/quotes").then( (data) => {
+  $.get("/api/quotes").then((data) => {
     let quote;
     quote = data[Math.floor(Math.random() * data.length)];
     $("#new-quote").text(quote.body);
