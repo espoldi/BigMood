@@ -86,14 +86,6 @@ $(document).ready(function () {
   });
 
 
-  /*Get all previous data from current user
-  $.get(`/api/userdata/${userId}`).then(function (data) {
-    userData = JSON.parse(data);
-    console.log(userData); //FOR TESTING
-  }).catch((err) => {
-    console.log(JSON.stringify(err));
-  }); */
-
   /**** Side Nav Menu ****/
   const slideMenu = document.querySelectorAll(".sidenav");
   M.Sidenav.init(slideMenu, {});
