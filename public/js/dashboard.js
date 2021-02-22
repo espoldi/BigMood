@@ -21,7 +21,7 @@ $(document).ready(function () {
       break;
     case 5: color = "green";
       break;
-    default: color = "light";
+    default: color = "";
     }
     // Change background color
     themeSwitch.each(function (){
@@ -37,10 +37,9 @@ $(document).ready(function () {
       if((themeSwitch.hasClass("dark"))){
         themeSwitch.removeClass("dark");
       }
-      if((themeSwitch.hasClass("light"))){
-        themeSwitch.removeClass("light");
+      if (color){
+        themeSwitch.addClass(color);
       }
-      themeSwitch.addClass(color);
     });
     // Change text color
     themeText.each(function() {
@@ -56,10 +55,9 @@ $(document).ready(function () {
       if((themeText.hasClass("dark-text"))){
         themeText.removeClass("dark-text");
       }
-      if((themeText.hasClass("light-text"))){
-        themeText.removeClass("light-text");
+      if(color){
+        themeText.addClass(`${color}-text`);
       }
-      themeText.addClass(`${color}-text`);
     });
   }
 
@@ -67,7 +65,7 @@ $(document).ready(function () {
   // Get the current theme for the current user
   function getTheme(user){
     $.get(`/api/users/${user}`).then(function (data) {
-      let userTheme = JSON.parse(data.Theme.id); // current user Theme
+      let userTheme = data.Theme.id; // current user Theme
       console.log("userTheme", userTheme);
       displayTheme(userTheme);
       return userTheme;
