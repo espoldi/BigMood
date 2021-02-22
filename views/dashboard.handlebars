@@ -1,5 +1,5 @@
 {{!-- Nav Bar --}}
-<nav class="theme-switch light">
+<nav class="theme-switch">
   <div class="nav-wrapper">
     <a href="#" class="brand-logo center">BigMood</a>
     <a href="#" class="sidenav-trigger show-on-large" data-target="slide-out"><i class="material-icons">menu</i></a>
@@ -160,13 +160,9 @@
 
 <div class="modal" id="newEntry">
   <div class="modal-content">
-
     <form id="createform">
-
-
-
       <h3>How are you feeling?</h3>
-      <div id="mooodlist">
+      <div class="row" id="mood-list">
 
         {{!-- Mood Icons --}}
         {{#each moods}}

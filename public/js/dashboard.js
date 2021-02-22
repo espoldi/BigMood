@@ -10,6 +10,7 @@ $(document).ready(function () {
   // Function to change color class based on the themeId
   function displayTheme(theme) {
     const themeSwitch = $(".theme-switch");
+    const themeText = $(".theme-text");
     let color;
     switch (theme) {
     case 2: color = "black";
@@ -40,12 +41,34 @@ $(document).ready(function () {
       }
       themeSwitch.addClass(color);
     });
+
+    // Change text color
+    themeText.each(function() {
+      if((themeText.hasClass("red-text"))){
+        themeText.removeClass("red-text");
+      }
+      if((themeText.hasClass("blue-text"))){
+        themeText.removeClass("blue-text");
+      }
+      if((themeText.hasClass("green-text"))){
+        themeText.removeClass("green-text");
+      }
+      if((themeText.hasClass("black-text"))){
+        themeText.removeClass("black-text");
+      }
+      if ((themeText.hasClass("grey"))) {
+        themeText.removeClass("grey");
+      }
+      themeText.addClass(`${color}-text`);
+    });
   }
+
 
   // Get the current theme for the current user
   function getTheme(user) {
     $.get(`/api/users/${user}`).then(function (data) {
-      let userTheme = data.ThemeId; // current user Theme
+      let userTheme = data.Theme.id; // current user Theme
+      console.log("userTheme", userTheme);
       displayTheme(userTheme);
       return userTheme;
     });
@@ -79,9 +102,7 @@ $(document).ready(function () {
     console.log(updatingUser); // FOR TESTING
     // Update ThemeId for current user in users table
     $.post("/api/update", updatingUser).then((data) => {
-      console.log(themeId);
-      location.reload("dashboard");
-
+      location.reload();
     }).catch((err) => {
       console.log(JSON.stringify(err));
     });
@@ -101,9 +122,7 @@ $(document).ready(function () {
     console.log(JSON.stringify(err));
   });
 
-  /**** Modal New Entry ****/
-  const newEntryWindow = document.querySelector(".modal");
-  M.Modal.init(newEntryWindow, {});
+
 
 
   // Dropdown for sorting all entries
@@ -115,20 +134,16 @@ $(document).ready(function () {
   const displayNew = document.querySelector(".collapsible");
   M.Collapsible.init(displayNew, {});
 
+  /**** Modal New Entry ****/
+  const newEntryWindow = $(".modal");
+  M.Modal.init(newEntryWindow, {});
 
-
-  // Select menu for changing the theme
-  var elems = document.querySelectorAll("select");
-  // var instances = M.FormSelect.init(elems, options);
-
-  const postmoodactivity = document.getElementById("createform");
-
+  const postmoodactivity = $("#createform");
   if (postmoodactivity) {
-    postmoodactivity.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const moodSelected = document.querySelectorAll("input[name=\"moodgroup\"]");
-      const activitySelected = document.querySelectorAll("input[name=\"activitygroup\"]");
+    postmoodactivity.on("submit", (event) => {
+      event.preventDefault();
+      const moodSelected = $("input[name=\"moodgroup\"]");
+      const activitySelected = $("input[name=\"activitygroup\"]");
       let moodValue;
       let activityValue;
       for (const moodSelect of moodSelected) {
@@ -138,37 +153,22 @@ $(document).ready(function () {
         }
       }
       for (const activityselect of activitySelected) {
-
         if (activityselect.checked) {
           activityValue = activityselect.value;
           break;
         }
       }
-
-
-
-
       const newUserData = {
-        moodId: moodValue,
+        MoodId: moodValue,
         activityId: activityValue,
-        userId: userId,
-
+        userId: userId
       };
-
-      fetch("/api/userdata", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(newUserData),
-      }).then((response) => {
-
-
+      // create new entries in userdata
+      $.post("/api/userdata", newUserData).then((response) => {
         location.reload();
+      }).catch((err) => {
+        console.log(JSON.stringify(err));
       });
-
     });
   }
 

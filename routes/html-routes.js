@@ -39,7 +39,9 @@ module.exports = function (app) {
       where: { userId: req.user.id },
       include: [db.User, db.Mood, db.Activity]
     });
-    result1.forEach((val) => { delPass2(val); });
+    result1.forEach((val) => {
+      delPass2(val);
+    });
 
     const result2 = await db.Mood.findAll();
 
@@ -53,7 +55,6 @@ module.exports = function (app) {
       activities: result3
     });
   });
-
 
 
   // Route for logging user out

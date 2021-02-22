@@ -1,7 +1,3 @@
-:root {
-    --primary-bg-color: #400080; /*Dark Blue Color */
-    --primary-color: #ffffff; /* White Color */
-  }
 
 body {
     background-color: white;
@@ -17,7 +13,6 @@ body {
     align-content: center;
     margin-top: 1rem;
 }
-
 
 #modalButton {
     position: sticky;
@@ -54,7 +49,3 @@ h5 {
     padding: 25px;
 }
 
-.hero {
-    background: var(--primary-bg-color);
-    color: var(--primary-color);
- }
