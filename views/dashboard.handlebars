@@ -155,39 +155,35 @@
 </div>
 
 {{!-- Modal New Mood Entry --}}
-<button class="btn indigo hoverable modal-trigger" data-target="newEntry" id="modalButton"><i
-    class="material-icons">add</i></button>
-
+<button class="btn indigo hoverable modal-trigger" data-target="newEntry" id="modalButton">
+  <i class="material-icons">add</i>
+  </button>
 <div class="modal" id="newEntry">
   <div class="modal-content">
-
     <form id="createform">
-
-
-
       <h3>How are you feeling?</h3>
-      <div id="mooodlist">
+      <div class="row" id="mood-list">
 
         {{!-- Mood Icons --}}
-        <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist1" value="1" type="radio" />
-          <span><i class="material-icons">sentiment_very_satisfied</i></span>
+        <label class="col">
+          <input class="with-gap" name="moodgroup" id="mood-list1" value="1" type="radio" />
+          <span><i class="material-icons medium">sentiment_very_satisfied</i></span>
         </label>
-        <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist2" value="2" type="radio" />
-          <span><i class="material-icons">sentiment_satisfied</i></span>
+        <label class="col">
+          <input class="with-gap" name="moodgroup" id="mood-list2" value="2" type="radio" />
+          <span><i class="material-icons medium">sentiment_satisfied</i></span>
         </label>
-        <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist3" value="3" type="radio" />
-          <span><i class="material-icons">sentiment_neutral</i></span>
+        <label class="col">
+          <input class="with-gap" name="moodgroup" id="mood-list3" value="3" type="radio" />
+          <span><i class="material-icons medium">sentiment_neutral</i></span>
         </label>
-        <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist4" value="4" type="radio" />
-          <span><i class="material-icons">sentiment_dissatisfied</i></span>
+        <label class="col">
+          <input class="with-gap" name="moodgroup" id="mood-list4" value="4" type="radio" />
+          <span><i class="material-icons medium">sentiment_dissatisfied</i></span>
         </label>
-        <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist5" value="5" type="radio" />
-          <span><i class="material-icons">sentiment_very_dissatisfied</i></span>
+        <label class="col">
+          <input class="with-gap" name="moodgroup" id="mood-list5" value="5" type="radio" />
+          <span><i class="material-icons medium">sentiment_very_dissatisfied</i></span>
         </label>
 
       </div>
@@ -202,47 +198,47 @@
         {{!-- Activity Icons --}}
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist1" value="1" type="radio" />
-          <span><i class="material-icons">delete</i></span>
+          <span><i class="material-icons medium">delete</i></span>
         </label>
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist2" value="2" type="radio" />
-          <span><i class="material-icons">directions_run</i></span>
+          <span><i class="material-icons medium">directions_run</i></span>
         </label>
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist3" value="3" type="radio" />
-          <span><i class="material-icons">group</i></span>
+          <span><i class="material-icons medium">group</i></span>
         </label>
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist4" value="4" type="radio" />
-          <span><i class="material-icons">casino</i></span>
+          <span><i class="material-icons medium">casino</i></span>
         </label>
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist5" value="5" type="radio" />
-          <span><i class="material-icons">home</i></span>
+          <span><i class="material-icons medium">home</i></span>
         </label>
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist6" value="6" type="radio" />
-          <span><i class="material-icons">free_breakfast</i></span>
+          <span><i class="material-icons medium">free_breakfast</i></span>
         </label>
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist7" value="7" type="radio" />
-          <span><i class="material-icons">album</i></span>
+          <span><i class="material-icons medium">album</i></span>
         </label>
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist8" value="8" type="radio" />
-          <span><i class="material-icons">book</i></span>
+          <span><i class="material-icons medium">book</i></span>
         </label>
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist9" value="9" type="radio" />
-          <span><i class="material-icons">directions_car</i></span>
+          <span><i class="material-icons medium">directions_car</i></span>
         </label>
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist10" value="10" type="radio" />
-          <span><i class="material-icons">tv</i></span>
+          <span><i class="material-icons medium">tv</i></span>
         </label>
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist11" value="11" type="radio" />
-          <span><i class="material-icons">domain</i></span>
+          <span><i class="material-icons medium theme-text red-text">domain</i></span>
         </label>
       </div>
 

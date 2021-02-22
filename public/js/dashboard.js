@@ -10,6 +10,7 @@ $(document).ready(function () {
   // Function to change color class based on the themeId
   function displayTheme(theme) {
     const themeSwitch = $(".theme-switch");
+    const themeText = $(".theme-text");
     let color;
     switch (theme) {
     case 2: color = "dark";
@@ -22,6 +23,7 @@ $(document).ready(function () {
       break;
     default: color = "light";
     }
+    // Change background color
     themeSwitch.each(function (){
       if((themeSwitch.hasClass("red"))){
         themeSwitch.removeClass("red");
@@ -40,7 +42,27 @@ $(document).ready(function () {
       }
       themeSwitch.addClass(color);
     });
+    // Change text color
+    themeText.each(function() {
+      if((themeText.hasClass("red-text"))){
+        themeText.removeClass("red-text");
+      }
+      if((themeText.hasClass("blue-text"))){
+        themeText.removeClass("blue-text");
+      }
+      if((themeText.hasClass("green-text"))){
+        themeText.removeClass("green-text");
+      }
+      if((themeText.hasClass("dark-text"))){
+        themeText.removeClass("dark-text");
+      }
+      if((themeText.hasClass("light-text"))){
+        themeText.removeClass("light-text");
+      }
+      themeText.addClass(`${color}-text`);
+    });
   }
+
 
   // Get the current theme for the current user
   function getTheme(user){
