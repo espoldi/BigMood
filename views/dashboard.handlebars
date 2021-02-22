@@ -115,11 +115,11 @@
               <select>
                 <option value="">Sort Entries By</option>
                 <option value="1">Date</option>
-                {{#each mood}}
-                <option value="{{name}}">{{name}}</option>
+                {{#each moods}}
+                <option value="{{dataValues.id}}">{{dataValues.name}}</option>
                 {{/each}}
                 {{#each activities}}
-                <option value="{{name}}">{{activity.name}}</option>
+                <option value="{{dataValues.id}}">{{dataValues.name}}</option>
                 {{/each}}
               </select>
             </div>

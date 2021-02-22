@@ -34,22 +34,27 @@ module.exports = function (app) {
 
   // Add isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/dashboard", isAuthenticated, (req, res) => {
-    db.UserData.findAll({
-      where: {
-        userId: req.user.id
-      },
+  app.get("/dashboard", isAuthenticated, async (req, res) => {
+    const result1 = await db.UserData.findAll({
+      where: { userId: req.user.id },
       include: [db.User, db.Mood, db.Activity]
-    }).then((result) => {
-      result.forEach((val) => {
-        delPass2(val); // Excluding password and unnessary key from result
-      });
-      res.render("dashboard", {
-        style: "dashboard.css",
-        entries: result
-      });
+    });
+    result1.forEach((val) => { delPass2(val); });
+
+    const result2 = await db.Mood.findAll();
+
+    const result3 = await db.Activity.findAll();
+
+
+    res.render("dashboard", {
+      style: "dashboard.css",
+      entries: result1,
+      moods: result2,
+      activities: result3
     });
   });
+
+
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
