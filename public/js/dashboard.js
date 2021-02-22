@@ -12,7 +12,7 @@ $(document).ready(function () {
     const themeSwitch = $(".theme-switch");
     let color;
     switch (theme) {
-    case 2: color = "dark";
+    case 2: color = "black";
       break;
     case 3: color = "red";
       break;
@@ -20,30 +20,30 @@ $(document).ready(function () {
       break;
     case 5: color = "green";
       break;
-    default: color = "light";
+    default: color = "grey";
     }
-    themeSwitch.each(function (){
-      if((themeSwitch.hasClass("red"))){
+    themeSwitch.each(function () {
+      if ((themeSwitch.hasClass("red"))) {
         themeSwitch.removeClass("red");
       }
-      if((themeSwitch.hasClass("blue"))){
+      if ((themeSwitch.hasClass("blue"))) {
         themeSwitch.removeClass("blue");
       }
-      if((themeSwitch.hasClass("green"))){
+      if ((themeSwitch.hasClass("green"))) {
         themeSwitch.removeClass("green");
       }
-      if((themeSwitch.hasClass("dark"))){
-        themeSwitch.removeClass("dark");
+      if ((themeSwitch.hasClass("black"))) {
+        themeSwitch.removeClass("black");
       }
-      if((themeSwitch.hasClass("light"))){
-        themeSwitch.removeClass("light");
+      if ((themeSwitch.hasClass("grey"))) {
+        themeSwitch.removeClass("grey");
       }
       themeSwitch.addClass(color);
     });
   }
 
   // Get the current theme for the current user
-  function getTheme(user){
+  function getTheme(user) {
     $.get(`/api/users/${user}`).then(function (data) {
       let userTheme = data.ThemeId; // current user Theme
       displayTheme(userTheme);
@@ -56,10 +56,10 @@ $(document).ready(function () {
   // Get the current user name and id
   $.get("/api/user_data").then(function (data) {
     userName = data.name; // current username
-    userId= data.id; // current user id
+    userId = data.id; // current user id
     $(".current-user").text(userName);
     console.log("First userId ", userId); //FOR TESTING
-    themeId= getTheme(userId);
+    themeId = getTheme(userId);
   });
 
 
@@ -92,7 +92,7 @@ $(document).ready(function () {
   const stats = $(".tabs");
   M.Tabs.init(stats, {});
   // Get Random quote at loading page
-  $.get("/api/quotes").then( (data) => {
+  $.get("/api/quotes").then((data) => {
     let quote;
     quote = data[Math.floor(Math.random() * data.length)];
     $("#new-quote").text(quote.body);
@@ -120,25 +120,6 @@ $(document).ready(function () {
   // Select menu for changing the theme
   var elems = document.querySelectorAll("select");
   // var instances = M.FormSelect.init(elems, options);
-
-
-  // switch () {
-  //   case :
-
-  //     break;
-  //   case :
-
-  //     break;
-
-  // }
-
-
-  // const theme = $(".theme");
-  // M.Theme.init(theme, {});
-  // $.post("/api/update").then(function (data) {
-  //   if (theme.classList.contains
-  // });
-
 
   const postmoodactivity = document.getElementById("createform");
 
