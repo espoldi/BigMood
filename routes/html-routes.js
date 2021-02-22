@@ -16,7 +16,7 @@ module.exports = function (app) {
     });
   });
 
-// Route to log user in
+  // Route to log user in
   app.get("/", (req, res) => {
     // If the user already has an account send them to the dashboard page
     if (req.user) {
