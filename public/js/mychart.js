@@ -1,10 +1,9 @@
-
-let color = String(sessionStorage.getItem("color"));
+let color = sessionStorage.getItem("color");
 let id = sessionStorage.getItem("userId");
 
 /** Get data from API: TO DO ***/
 $.get(`/api/userdata/${id}`).then(function(data) {
-  
+
 });
 
 

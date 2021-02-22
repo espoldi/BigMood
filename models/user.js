@@ -25,6 +25,9 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
+  }
+  , {
+    timestamps: false // disable createAt and updateAt
   });
   // Can unhashed password entered by user be compared to hashed password stored in our database?
   User.prototype.validPassword = function (password) {
