@@ -88,8 +88,7 @@ $(document).ready(function () {
     console.log(updatingUser); // FOR TESTING
     // Update ThemeId for current user in users table
     $.post("/api/update", updatingUser).then((data) => {
-      console.log(themeId);
-      location.reload("dashboard");
+      location.reload();
     }).catch((err) => {
       console.log(JSON.stringify(err));
     });
@@ -109,9 +108,7 @@ $(document).ready(function () {
     console.log(JSON.stringify(err));
   });
 
-  /**** Modal New Entry ****/
-  const newEntryWindow = document.querySelector(".modal");
-  M.Modal.init(newEntryWindow, {});
+
 
 
   // Dropdown for sorting all entries
@@ -123,39 +120,16 @@ $(document).ready(function () {
   const displayNew = document.querySelector(".collapsible");
   M.Collapsible.init(displayNew, {});
 
+  /**** Modal New Entry ****/
+  const newEntryWindow = $(".modal");
+  M.Modal.init(newEntryWindow, {});
 
-
-  // Select menu for changing the theme
-  var elems = document.querySelectorAll("select");
-  // var instances = M.FormSelect.init(elems, options);
-
-
-  // switch () {
-  //   case :
-
-  //     break;
-  //   case :
-
-  //     break;
-
-  // }
-
-
-  // const theme = $(".theme");
-  // M.Theme.init(theme, {});
-  // $.post("/api/update").then(function (data) {
-  //   if (theme.classList.contains
-  // });
-
-
-  const postmoodactivity = document.getElementById("createform");
-
+  const postmoodactivity = $("#createform");
   if (postmoodactivity) {
-    postmoodactivity.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const moodSelected = document.querySelectorAll("input[name=\"moodgroup\"]");
-      const activitySelected = document.querySelectorAll("input[name=\"activitygroup\"]");
+    postmoodactivity.on("submit", (event) => {
+      event.preventDefault();
+      const moodSelected = $("input[name=\"moodgroup\"]");
+      const activitySelected = $("input[name=\"activitygroup\"]");
       let moodValue;
       let activityValue;
       for (const moodSelect of moodSelected) {
@@ -165,37 +139,22 @@ $(document).ready(function () {
         }
       }
       for (const activityselect of activitySelected) {
-
         if (activityselect.checked) {
           activityValue = activityselect.value;
           break;
         }
       }
-
-
-
-
       const newUserData = {
-        moodId: moodValue,
+        MoodId: moodValue,
         activityId: activityValue,
-        userId: userId,
-
+        userId: userId
       };
-
-      fetch("/api/userdata", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(newUserData),
-      }).then((response) => {
-
-
+      // create new entries in userdata
+      $.post("/api/userdata", newUserData).then((response) => {
         location.reload();
+      }).catch((err) => {
+        console.log(JSON.stringify(err));
       });
-
     });
   }
 
