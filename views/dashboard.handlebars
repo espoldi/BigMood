@@ -168,33 +168,15 @@
       <div id="mooodlist">
 
         {{!-- Mood Icons --}}
-        <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist1" value="1" type="radio" />
-          <span><i class="material-icons">sentiment_very_satisfied</i></span>
-        </label>
-        <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist2" value="2" type="radio" />
-          <span><i class="material-icons">sentiment_satisfied</i></span>
-        </label>
-        <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist3" value="3" type="radio" />
-          <span><i class="material-icons">sentiment_neutral</i></span>
-        </label>
-        <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist4" value="4" type="radio" />
-          <span><i class="material-icons">sentiment_dissatisfied</i></span>
-        </label>
-        <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist5" value="5" type="radio" />
-          <span><i class="material-icons">sentiment_very_dissatisfied</i></span>
-        </label>
-
+        {{#each moods}}
+          <label>
+            <input class="with-gap" name="moodgroup" id="mooodlist{{dataValues.id}}" value="{{dataValues.id}}" type="radio"/>
+            <span><i class="material-icons">{{dataValues.icon}}</i></span>
+          </label>
+        {{/each}}
       </div>
 
-
       <div class="divider"></div>
-
-
 
       <h3>What are you doing?</h3>
       <div id="activitylist">
