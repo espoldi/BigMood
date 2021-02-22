@@ -49,3 +49,26 @@ h5 {
     padding: 25px;
 }
 
+/* For the Chart */
+.container-chart {
+    width: 100%;
+    margin: 3%;
+    position: relative;
+  }
+.chartjs-y {
+  padding: 0 !important;
+  position: absolute; 
+            top: 17px; 
+            left: 0px;
+}
+
+.chart-label {
+  margin-top: 0.2rem;
+}
+.chart-image{
+    margin-left: 30px; 
+}
+
+#chart{
+    width: 50%;
+}
