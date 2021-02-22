@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 $(document).ready(function () {
-  let userName, themeName;
+  let userName;
   let userId, themeId;
   let userData = [];
 
@@ -56,8 +56,8 @@ $(document).ready(function () {
       if((themeText.hasClass("black-text"))){
         themeText.removeClass("black-text");
       }
-      if ((themeText.hasClass("grey"))) {
-        themeText.removeClass("grey");
+      if ((themeText.hasClass("grey-text"))) {
+        themeText.removeClass("grey-text");
       }
       themeText.addClass(`${color}-text`);
     });
@@ -68,7 +68,8 @@ $(document).ready(function () {
   function getTheme(user) {
     $.get(`/api/users/${user}`).then(function (data) {
       let userTheme = data.Theme.id; // current user Theme
-      console.log("userTheme", userTheme);
+      let themeName = data.Theme.name; // current Theme name
+      sessionStorage.setItem("color", themeName); // Store to session for graph
       displayTheme(userTheme);
       return userTheme;
     });
@@ -81,7 +82,7 @@ $(document).ready(function () {
     userName = data.name; // current username
     userId = data.id; // current user id
     $(".current-user").text(userName);
-    console.log("First userId ", userId); //FOR TESTING
+    sessionStorage.setItem("userId", userId); // Store to session for graph
     themeId = getTheme(userId);
   });
 
@@ -94,7 +95,7 @@ $(document).ready(function () {
   $("#dropdown1").click(e => {
     newTheme = e.target.firstChild.textContent;
     themeId = e.target.getAttributeNode("data-id").value;
-
+    sessionStorage.setItem("color", newTheme); // Store to session for graph
     let updatingUser = {
       id: userId,
       ThemeId: themeId
@@ -163,7 +164,7 @@ $(document).ready(function () {
         activityId: activityValue,
         userId: userId
       };
-      // create new entries in userdata
+      // create new entries in userdata table
       $.post("/api/userdata", newUserData).then((response) => {
         location.reload();
       }).catch((err) => {
@@ -171,7 +172,5 @@ $(document).ready(function () {
       });
     });
   }
-
-
 
 });

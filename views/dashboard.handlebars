@@ -82,7 +82,36 @@
       <div class="card center">
         <div class="card-content">
           <h3>Dashboard Statistics</h3>
-          <p>{INSERT GRAPH HERE}</p>
+          {{!-- Chart --}}
+          <div class="container-chart">
+            <h6>Average weekly mood</h6>
+            <div class="box row">
+              <div class="chart-image">
+                <canvas id="chart"></canvas>
+              </div>
+              <div class="chartjs-y right-align">
+                <div class="chart-label">
+                  <i class="small material-icons">sentiment_very_satisfied</i>
+                </div>
+                <div class="chart-label">
+                  <i class="small material-icons">sentiment_satisfied</i>
+                </div>
+                <div class="chart-label">
+                  <i class="small material-icons">sentiment_neutral</i>
+                </div>
+                <div class="chart-label">
+                  <i class="small material-icons">sentiment_dissatisfied</i>
+                </div>
+                <div class="chart-label">
+                  <i class="small material-icons">sentiment_very_dissatisfied</i>
+                </div>
+                <div class="chart-label">
+                  <i class="small material-icons"> </i>
+                </div>
+              </div>
+              
+            </div>
+          </div>
         </div>
         <div class="card-tabs">
           <ul class="tabs tabs-fixed-width">
@@ -202,6 +231,8 @@
 
   </div>
 </div>
-
+{{!-- Link to chartJs --}}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 {{!-- Link to Dashboard JS --}}
 <script src="./js/dashboard.js"></script>
+<script src="./js/mychart.js"></script>
