@@ -63,14 +63,6 @@ $(document).ready(function () {
   });
 
 
-  /* Get all previous data from current user
-  $.get(`/api/userdata/${userId}`).then(function (data) {
-    userData = data;
-    console.log(userData); //FOR TESTING
-  }).catch((err) => {
-    console.log(JSON.stringify(err));
-  }); */
-
   /**** Side Nav Menu ****/
   const slideMenu = document.querySelectorAll(".sidenav");
   M.Sidenav.init(slideMenu, {});
@@ -135,12 +127,33 @@ $(document).ready(function () {
     postmoodactivity.addEventListener("submit", (e) => {
       e.preventDefault();
 
+      const moodSelected = document.querySelectorAll("input[name=\"moodgroup\"]");
+      const activitySelected = document.querySelectorAll("input[name=\"activitygroup\"]");
+      let moodValue;
+      let activityValue;
+      for (const moodSelect of moodSelected) {
+        if (moodSelect.checked) {
+          moodValue = moodSelect.value;
+          break;
+        }
+      }
+      for (const activityselect of activitySelected) {
+
+        if (activityselect.checked) {
+          activityValue = activityselect.value;
+          break;
+        }
+      }
+
+
+
 
       const newUserData = {
-        moodId: document.querySelectorAll("input[name=\"moodgroup\"]"),
-        activityId: document.querySelectorAll("input[name=\"activitygroup\"]"),
+        moodId: moodValue,
+        activityId: activityValue,
+        userId: userId,
+
       };
-      console.log(newUserData);
 
       fetch("/api/userdata", {
         method: "POST",
@@ -153,9 +166,9 @@ $(document).ready(function () {
       }).then((response) => {
 
 
-        console.log("Created a new user data!");
         location.reload();
       });
+
     });
   }
 
