@@ -14,7 +14,6 @@ module.exports = (app) => {
   // function to delete the display of the password and ThemeId when associated table
   const delPass2 = (val) => {
     delete val.dataValues.User.dataValues.password;
-    delete val.dataValues.User.dataValues.ThemeId;
     return val;
   };
 
@@ -60,22 +59,36 @@ module.exports = (app) => {
 
   // GET route for getting all of the themes
   app.get("/api/themes", (req, res) => {
-    db.Theme.findAll({})
+    if (!req.user) {
+      // The user is not logged in, redirect to login page
+      res.redirect("/");
+    } else {
+       db.Theme.findAll({})
       .then((result) => {
         res.json(result);
       });
+    }
   });
 
   // GET route for getting all of the quotes
   app.get("/api/quotes", (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, redirect to login page
+      res.redirect("/");
+    } else {
     db.Quote.findAll({})
       .then((result) => {
         res.json(result);
       });
+    }
   });
 
   // GET route for getting all of the activities
   app.get("/api/activities", (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, redirect to login page
+      res.redirect("/");
+    } else {
     db.Activity.findAll({})
       .then((result) => {
         res.json(result);
@@ -84,14 +97,23 @@ module.exports = (app) => {
 
   // GET route for getting all of the moods
   app.get("/api/moods", (req, res) => {
-    db.Mood.findAll({})
+    if (!req.user) {
+      // The user is not logged in, redirect to login page
+      res.redirect("/");
+    } else {
+      db.Mood.findAll({})
       .then((result) => {
         res.json(result);
       });
+    }
   });
 
   // GET route for retrieveing a single user with theme
   app.get("/api/users/:id", (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, redirect to login page
+      res.redirect("/");
+    } else {
     db.User.findOne({
       where: {
         id: req.params.id
@@ -101,11 +123,16 @@ module.exports = (app) => {
       delPass(result); // Excluding password from result
       res.json(result);
     });
+  }
   });
 
   // GET route for retrieveing all data from current user
   app.get("/api/userdata/:userId", (req, res) => {
-    db.UserData.findAll({
+    if (!req.user) {
+      // The user is not logged in, redirect to login page
+      res.redirect("/");
+    } else {
+      db.UserData.findAll({
       where: {
         userId: req.params.userId
       },
@@ -116,12 +143,17 @@ module.exports = (app) => {
       });
       res.json(result);
     });
+  }
   });
 
   // POST route for updating safely the theme of the current user
   app.post("/api/update", (req, res) => {
     let user = req.body.id;
     let newTheme = req.body.ThemeId;
+    if (!req.user) {
+      // The user is not logged in, redirect to login page
+      res.redirect("/");
+    } else {
     db.User.findOne(
       {
         where: {
@@ -138,11 +170,16 @@ module.exports = (app) => {
           error: "Something went wrong. Please try again later."
         });
     });
+  }
   });
 
   // POST route for adding mood and activity to the current user
   app.post("/api/userdata", (req, res) => {
-    db.UserData.create({
+    if (!req.user) {
+      // The user is not logged in, redirect to login page
+      res.redirect("/");
+    } else {
+      db.UserData.create({
       userId: req.body.userId,
       activityId: req.body.activityId,
       moodId: req.body.moodId
@@ -155,19 +192,8 @@ module.exports = (app) => {
           error: "Something went wrong. Please try again later."
         });
     });
+  }
   });
 
-  /***************MAY NOT BE NEEDED*************/
-
-  // GET route for getting all of the users with theme
-  app.get("/api/users", (req, res) => {
-    db.User.findAll({include:[db.Theme]})
-      .then((result) => {
-        result.forEach((val) => {
-          delPass(val); // Excluding password and unnessary key from result
-        });
-        res.json(result);
-      });
-  });
-
+ 
 };
