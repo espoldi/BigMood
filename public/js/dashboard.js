@@ -177,11 +177,10 @@ $(document).ready(function () {
         index = new Date(date).getDay(); // Get the index of the week day
         entryDates.push(date);
         datesIndex.push(index);
-        console.log(userMoods);
       }
-      console.log("moods: ", userMoods); //FOR TESTING
-      console.log("Entrydates: ", entryDates); //FOR TESTING
-      console.log("datesindex: ", datesIndex); //FOR TESTING
+      console.log("moods for graph: ", userMoods); //FOR TESTING
+      console.log("Entrydates for graph: ", entryDates); //FOR TESTING
+      console.log("datesindex for graph: ", datesIndex); //FOR TESTING
 
       for(let i = 0; i< datesIndex.length; i++){
         switch (datesIndex[i]) {
@@ -208,8 +207,8 @@ $(document).ready(function () {
           break;
         }
       }
-      console.log("total", tuesdayTotal ); //FOR TESTING
-      console.log("total", tuesdayCounter); //FOR TESTING
+      console.log("Example with Tuesday (mood total): ", tuesdayTotal ); //FOR TESTING
+      console.log("Example with Tuesday (counter): ", tuesdayCounter); //FOR TESTING
       // Populate average mood/day
       avgMood.push(average(sundayTotal, sundayCounter));
       avgMood.push(average(mondayTotal, mondayCounter));
@@ -219,12 +218,12 @@ $(document).ready(function () {
       avgMood.push(average(fridayTotal, fridayCounter));
       avgMood.push(average(saturdayTotal, saturdayCounter));
 
-      console.log("final array", avgMood); // FOR TESTING
+      console.log("final array: ", avgMood); // FOR TESTING
 
       // Find today's day:
       const today = new Date();
       const todayIndex = today.getDay();
-      console.log("today ", today); // FOR TESTING
+      console.log("today's date", today); // FOR TESTING
       console.log("todayindex ", todayIndex); // FOR TESTING
 
       /***TO DO: REODER ARRAY BASE OF TODAY AS LAST ARRAY INDEX ***/
