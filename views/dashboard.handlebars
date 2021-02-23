@@ -122,14 +122,17 @@
         </div>
         <div class="card-content grey lighten-4">
           <div id="mood">
-            <h4>Average Mood</h4>
+            <p class="fav-icon"><i class="medium material-icons theme-text" id="fav-mood"> </i></p>
+            <p class="fav-name" id="my-mood"></p>
+            
           </div>
           <div id="activity">
-            <h4>Most Used Activity</h4>
+            <p class="fav-icon"><i class="medium material-icons theme-text" id="fav-activity"> </i></p>
+            <p class="fav-name" id="my-activity"></p>
           </div>
           <div id="quote">
             <p id="new-quote"></p>
-            <p id="author"></p>
+            <p class="theme-text" id="author"></p>
           </div>
         </div>
       </div>
@@ -234,6 +237,6 @@
 </div>
 {{!-- Link to chartJs --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-{{!-- Link to Dashboard JS --}}
+{{!-- Link to Dashboard and mychart JS --}}
 <script src="./js/dashboard.js"></script>
 <script src="./js/mychart.js"></script>

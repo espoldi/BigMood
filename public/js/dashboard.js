@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 $(document).ready(function () {
   let userName;
-  let userId, themeId;
-  let userData = [];
+  let userId, themeId, newTheme;
+
 
   M.AutoInit(); // Initiate dropdown
 
@@ -75,6 +75,61 @@ $(document).ready(function () {
     });
   }
 
+  // Function to get the most commonly found in an array
+  function commonlyUsed(arr){
+    return arr.sort((a,b) =>
+      arr.filter(v => v===a).length
+      - arr.filter(v => v===b).length
+    ).pop();
+  }
+
+  // Function to get all moods average and most used activities
+  function MoodsActivities(id){
+    $.get(`/api/userdata/${id}`).then((data) => {
+      let userMoods = [], userActivities = [];
+      let moodAvgIcon, moodAvgName;
+
+      // Pushing result in differents arrays
+      for (let i = 0; i < data.length; i++){
+        userMoods.push(data[i].moodId); // Get all moodId for a user
+        userActivities.push(data[i].Activity.name); // Get all activities for a user
+      }
+      // Getting the average mood
+      let total = 0;
+      for (let i = 0; i < userMoods.length; i++) {
+        total += userMoods[i];
+      }
+      let moodAvg= Math.round(total/userMoods.length);
+
+      // Finding the matching icon and name for the mood average
+      switch (moodAvg) {
+      case 1: moodAvgName = "excited";
+        moodAvgIcon = "sentiment_very_satisfied";
+        break;
+      case 2: moodAvgName = "happy";
+        moodAvgIcon = "sentiment_satisfied";
+        break;
+      case 3: moodAvgName = "neutral";
+        moodAvgIcon = "sentiment_neutral";
+        break;
+      case 4: moodAvgName = "sad";
+        moodAvgIcon = "sentiment_dissatisfied";
+        break;
+      default: moodAvgName = "breakdown";
+        moodAvgIcon = "sentiment_very_dissatisfied";
+      }
+      $("#fav-mood").text(moodAvgIcon); // Display icon
+      $("#my-mood").text(moodAvgName); // Display name
+
+      // Getting the most common activity
+      let myActivity= commonlyUsed(userActivities);
+      $("#fav-activity").text(myActivity); // Display icon
+      $("#my-activity").text(myActivity); // Display name
+    }).catch((err) => {
+      console.log(JSON.stringify(err));
+    });
+  }
+
 
 
   // Get the current user name and id
@@ -83,6 +138,7 @@ $(document).ready(function () {
     userId = data.id; // current user id
     $(".current-user").text(userName);
     themeId = getTheme(userId);
+    MoodsActivities(userId);
   });
 
 
@@ -94,7 +150,6 @@ $(document).ready(function () {
   $("#dropdown1").click(e => {
     newTheme = e.target.firstChild.textContent;
     themeId = e.target.getAttributeNode("data-id").value;
-    sessionStorage.setItem("color", newTheme); // Store to session for graph
     let updatingUser = {
       id: userId,
       ThemeId: themeId
@@ -112,6 +167,7 @@ $(document).ready(function () {
   /**** Statistics tabs ****/
   const stats = $(".tabs");
   M.Tabs.init(stats, {});
+
   // Get Random quote at loading page
   $.get("/api/quotes").then((data) => {
     let quote;
@@ -126,13 +182,14 @@ $(document).ready(function () {
 
 
   // Dropdown for sorting all entries
-  const sortBy = document.querySelector("select");
+  const sortBy = $("select");
   M.FormSelect.init(sortBy, {});
 
 
   // Collapsible for all entries
-  const displayNew = document.querySelector(".collapsible");
+  const displayNew = $(".collapsible");
   M.Collapsible.init(displayNew, {});
+
 
   /**** Modal New Entry ****/
   const newEntryWindow = $(".modal");
