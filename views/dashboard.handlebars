@@ -97,14 +97,17 @@
         </div>
         <div class="card-content grey lighten-4">
           <div id="mood">
-            <h4>Average Mood</h4>
+            <p class="fav-icon"><i class="medium material-icons theme-text" id="fav-mood"> </i></p>
+            <p class="fav-name" id="my-mood"></p>
+            
           </div>
           <div id="activity">
-            <h4>Most Used Activity</h4>
+            <p class="fav-icon"><i class="medium material-icons theme-text" id="fav-activity"> </i></p>
+            <p class="fav-name" id="my-activity"></p>
           </div>
           <div id="quote">
             <p id="new-quote"></p>
-            <p id="author"></p>
+            <p class="theme-text" id="author"></p>
           </div>
         </div>
       </div>
@@ -145,7 +148,7 @@
             <i class="material-icons">{{dataValues.Mood.dataValues.icon}}</i>{{dataValues.Mood.dataValues.name}}
           </div>
           <div class="collapsible-body">
-            <span>
+            <span class="result">
               Date: {{dataValues.createdAt}}<br>
               Activities: <div class="chip"><i
                   class="material-icons">{{dataValues.Activity.dataValues.icon}}</i>{{dataValues.Activity.dataValues.name}}
