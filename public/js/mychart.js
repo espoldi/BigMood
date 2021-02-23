@@ -133,7 +133,7 @@ $.get("/api/user_data").then((data) => {
                 max: 5,
                 min: 0,
                 stepSize: 1,
-                display: false
+                display: true
               }
             }]
           }
