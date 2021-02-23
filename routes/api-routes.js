@@ -35,8 +35,8 @@ module.exports = (app) => {
       .then(() => {
         res.redirect(307, "/api/login"); // Temporary Redirect status
       })
-      .catch((err) => {
-        res.status(401).json(err); // Unauthorized status
+      .catch((error) => {
+        res.status(401).json(error); // Unauthorized status
       });
   });
 

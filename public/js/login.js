@@ -35,9 +35,9 @@ $(document).ready(() => {
       .then(() => {
         window.location.replace("/dashboard");
       })
-      .catch((err) => { // If there's an error, log the error
-        console.log(`An error occured: ${JSON.stringify(err)}`);
-        if (err.status === 401) {
+      .catch((error) => { // If there's an error, log the error
+        console.log(`An error occured: ${JSON.stringify(error)}`);
+        if (error.status === 401) {
           M.toast({ html: "Ooops! <br> Wrong email and/or password.", classes: "rounded" });
         }
       });

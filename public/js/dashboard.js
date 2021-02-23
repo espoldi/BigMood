@@ -3,8 +3,29 @@ $(document).ready(function () {
   let userName;
   let userId, themeId, newTheme;
 
+  /*** Materialize items activation ***/
+  // Side Nav Menu
+  const slideMenu = $(".sidenav");
+  M.Sidenav.init(slideMenu, {});
 
-  M.AutoInit(); // Initiate dropdown
+  // Initiate dropdown
+  M.AutoInit();
+
+  // Tabs for statistics
+  const stats = $(".tabs");
+  M.Tabs.init(stats, {});
+
+  // Dropdown for sorting all entries
+  const sortBy = $("select");
+  M.FormSelect.init(sortBy, {});
+
+  // Collapsible for all entries
+  const displayNew = $(".collapsible");
+  M.Collapsible.init(displayNew, {});
+
+  // Modal for new entry
+  const newEntryWindow = $(".modal");
+  M.Modal.init(newEntryWindow, {});
 
 
   // Function to change color class based on the themeId
@@ -125,12 +146,47 @@ $(document).ready(function () {
       let myActivity= commonlyUsed(userActivities);
       $("#fav-activity").text(myActivity); // Display icon
       $("#my-activity").text(myActivity); // Display name
-    }).catch((err) => {
-      console.log(JSON.stringify(err));
+    }).catch((error) => {
+      console.log(JSON.stringify(error));
     });
   }
 
-
+  // Function to create new entries
+  function newEntry(id){
+    const postmoodactivity = $("#createform");
+    if (postmoodactivity) {
+      postmoodactivity.on("submit", (event) => {
+        event.preventDefault();
+        const moodSelected = $("input[name=\"moodgroup\"]");
+        const activitySelected = $("input[name=\"activitygroup\"]");
+        let moodValue;
+        let activityValue;
+        for (const moodSelect of moodSelected) {
+          if (moodSelect.checked) {
+            moodValue = moodSelect.value;
+            break;
+          }
+        }
+        for (const activityselect of activitySelected) {
+          if (activityselect.checked) {
+            activityValue = activityselect.value;
+            break;
+          }
+        }
+        const newUserData = {
+          moodId: moodValue,
+          activityId: activityValue,
+          userId: id
+        };
+        // create new entries in userdata table
+        $.post("/api/userdata", newUserData).then((response) => {
+          location.reload();
+        }).catch((error) => {
+          console.log(JSON.stringify(error));
+        });
+      });
+    }
+  }
 
   // Get the current user name and id
   $.get("/api/user_data").then(function (data) {
@@ -139,12 +195,8 @@ $(document).ready(function () {
     $(".current-user").text(userName);
     themeId = getTheme(userId);
     MoodsActivities(userId);
+    newEntry(userId);
   });
-
-
-  /**** Side Nav Menu ****/
-  const slideMenu = document.querySelectorAll(".sidenav");
-  M.Sidenav.init(slideMenu, {});
 
   // Dropdown listeners
   $("#dropdown1").click(e => {
@@ -154,19 +206,13 @@ $(document).ready(function () {
       id: userId,
       ThemeId: themeId
     };
-    console.log(updatingUser); // FOR TESTING
     // Update ThemeId for current user in users table
     $.post("/api/update", updatingUser).then((data) => {
       location.reload();
-    }).catch((err) => {
-      console.log(JSON.stringify(err));
+    }).catch((error) => {
+      console.log(JSON.stringify(error));
     });
   });
-
-
-  /**** Statistics tabs ****/
-  const stats = $(".tabs");
-  M.Tabs.init(stats, {});
 
   // Get Random quote at loading page
   $.get("/api/quotes").then((data) => {
@@ -174,59 +220,8 @@ $(document).ready(function () {
     quote = data[Math.floor(Math.random() * data.length)];
     $("#new-quote").text(quote.body);
     $("#author").text(`— ${quote.author}`);
-  }).catch((err) => {
-    console.log(JSON.stringify(err));
+  }).catch((error) => {
+    console.log(JSON.stringify(error));
   });
-
-
-
-
-  // Dropdown for sorting all entries
-  const sortBy = $("select");
-  M.FormSelect.init(sortBy, {});
-
-
-  // Collapsible for all entries
-  const displayNew = $(".collapsible");
-  M.Collapsible.init(displayNew, {});
-
-
-  /**** Modal New Entry ****/
-  const newEntryWindow = $(".modal");
-  M.Modal.init(newEntryWindow, {});
-
-  const postmoodactivity = $("#createform");
-  if (postmoodactivity) {
-    postmoodactivity.on("submit", (event) => {
-      event.preventDefault();
-      const moodSelected = $("input[name=\"moodgroup\"]");
-      const activitySelected = $("input[name=\"activitygroup\"]");
-      let moodValue;
-      let activityValue;
-      for (const moodSelect of moodSelected) {
-        if (moodSelect.checked) {
-          moodValue = moodSelect.value;
-          break;
-        }
-      }
-      for (const activityselect of activitySelected) {
-        if (activityselect.checked) {
-          activityValue = activityselect.value;
-          break;
-        }
-      }
-      const newUserData = {
-        moodId: moodValue,
-        activityId: activityValue,
-        userId: userId
-      };
-      // create new entries in userdata table
-      $.post("/api/userdata", newUserData).then((response) => {
-        location.reload();
-      }).catch((err) => {
-        console.log(JSON.stringify(err));
-      });
-    });
-  }
 
 });
