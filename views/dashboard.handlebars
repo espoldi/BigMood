@@ -164,6 +164,7 @@
     <div class="col s12 m12 l12">
       <ul class="collapsible">
         {{#each entries}}
+        
         <li>
           <div class="collapsible-header">
             <i class="material-icons">{{dataValues.Mood.dataValues.icon}}</i>{{dataValues.Mood.dataValues.name}}
@@ -196,7 +197,7 @@
         {{!-- Mood Icons --}}
         {{#each moods}}
         <label>
-          <input class="with-gap" name="moodgroup" id="mooodlist{{dataValues.id}}" value="{{dataValues.id}}"
+          <input class="with-gap" name="moodgroup" id="moodlist{{dataValues.id}}" value="{{dataValues.id}}"
             type="radio" />
           <span><i class="material-icons medium">{{dataValues.icon}}</i><br><div class="center">{{dataValues.name}}</div></span>
         </label>
