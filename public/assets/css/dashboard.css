@@ -1,6 +1,56 @@
 
 body {
-    background-color: white;
+  background-color: white;
+}
+
+h5 {
+  margin-bottom: 1.5rem;  
+}
+
+.btn-large {
+  border-radius: 6px;
+}
+
+.card-content {
+  align-content: center;
+}
+
+.profile {
+  width: 7rem;
+  height: 7rem;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+}
+
+.dev-team {
+  margin-bottom: 2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.logo-nav {
+  padding: 25px;
+}
+
+.chart-label {
+  margin-top: 0.2rem;
+}
+
+.chart-image {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  border: 1px solid;
+}
+
+#chart {
+  max-width: 35rem;
+  max-height: 25rem;
+  margin: auto;
 }
 
 #logo {
@@ -9,71 +59,24 @@ body {
 }
 
 #dashContent {
-    background-color: lightgray;
-    align-content: center;
-    margin-top: 1rem;
+  background-color: lightgray;
+  align-content: center;
+  margin-top: 1rem;
 }
 
 #modalButton {
-    position: sticky;
-    right: 0;
-    bottom: 0;
+  position: sticky;
+  right: 0;
+  bottom: 0;
 }
 
 #author {
-    font-style: italic;
+  font-style: italic;
 }
 
-.card-content {
-  align-content: center;
-}
-
-.profile {
-    width: 7rem;
-    height: 7rem;
-    margin: auto;
-    display: grid;
-    place-items: center;
-    overflow: auto;
-}
-
-.dev-team {
-    margin-bottom: 2rem;
-    border-radius: 2rem;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-}
-
-h5 {
-    margin-bottom: 1.5rem;  
-}
-
-.logo-nav {
-    padding: 25px;
-}
-
-.chart-label {
-  margin-top: 0.2rem;
-}
-
-#chart {
-    max-width: 35rem;
-    max-height: 25rem;
-    margin: auto;
-}
-
-.icon-container {
-  border: 1px solid;
-  z-index: 2;
-}
-.icon-item {
-  border: 1px solid;
-}
-
-.chart-image {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  border: 1px solid;
+@media screen and (max-width: 550px) {
+  h3,
+  h4 {
+    font-size: 1.8rem;
+  }
 }
