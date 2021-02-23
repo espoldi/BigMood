@@ -96,6 +96,24 @@ $(document).ready(function () {
     });
   }
 
+
+  // Function to get the most commonly found in an array
+  function commonlyUsed(arr){
+    return arr.sort((a,b) =>
+      arr.filter(v => v===a).length
+      - arr.filter(v => v===b).length
+    ).pop();
+  }
+
+  //Function to calculate the average
+  function average(total, counter){
+    let avg = 0;
+    if (counter) {
+      avg = total / counter;
+    }
+    return avg;
+  }
+
   // Function to draw the chart
   function drawChart(labelX, labelY, data, color){
     let ctx = document.getElementById("chart").getContext("2d");
@@ -139,7 +157,7 @@ $(document).ready(function () {
     });
   }
 
-// Fo get the data to draw the chart
+  // Fo get the data to draw the chart
   function statChart(id, color){
     let userMoods = [], entryDates = [], datesIndex=[], avgMood=[];
     let sundayTotal = 0, mondayTotal = 0, tuesdayTotal = 0,
@@ -224,7 +242,7 @@ $(document).ready(function () {
         "<i class=\"material-icons\">sentiment_very_satisfied</i>"
 
       ];
-      
+
       drawChart(arrayX, arrayY, avgMood, color); // Draw the chart
 
     });
@@ -232,22 +250,6 @@ $(document).ready(function () {
   }
 
 
-  // Function to get the most commonly found in an array
-  function commonlyUsed(arr){
-    return arr.sort((a,b) =>
-      arr.filter(v => v===a).length
-      - arr.filter(v => v===b).length
-    ).pop();
-  }
-
-  //Function to calculate the average
-  function average(total, counter){
-    let avg = 0;
-    if (counter) {
-      avg = total / counter;
-    }
-    return avg;
-  }
 
   // Function to get all moods average and most used activities
   function MoodsActivities(id){
