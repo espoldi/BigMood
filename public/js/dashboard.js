@@ -86,13 +86,13 @@ $(document).ready(function () {
 
 
   // Get the current theme for the current user
-  function getTheme(user) {
-    $.get(`/api/users/${user}`).then(function (data) {
+  function getTheme(id) {
+    $.get(`/api/users/${id}`).then(function (data) {
       let userTheme = data.Theme.id; // current user Theme
-      let themeName = data.Theme.name; // current Theme name
-      sessionStorage.setItem("color", themeName); // Store to session for graph
+      let theme = data.Theme.name; // current Theme name
       displayTheme(userTheme);
-      return userTheme;
+      console.log ("theme", theme); //FOR TESTING GRAPH COLOR BUG
+      return theme;
     });
   }
 
@@ -116,7 +116,7 @@ $(document).ready(function () {
 
   // Function to draw the chart
   function drawChart(labelX, labelY, data, color){
-    let ctx = document.getElementById("chart").getContext("2d");
+    let ctx = $("#chart").get(0).getContext("2d");
     new Chart(ctx, {
       type: "bar",
       data: {
@@ -159,6 +159,7 @@ $(document).ready(function () {
 
   // Fo get the data to draw the chart
   function statChart(id, color){
+    console.log ("color", color); //FOR TESTING GRAPH COLOR BUG
     let userMoods = [], entryDates = [], datesIndex=[], avgMood=[];
     let sundayTotal = 0, mondayTotal = 0, tuesdayTotal = 0,
       wednesdayTotal = 0, thursdayTotal = 0, fridayTotal = 0, saturdayTotal = 0,
@@ -339,10 +340,10 @@ $(document).ready(function () {
     userName = data.name; // current username
     userId = data.id; // current user id
     $(".current-user").text(userName);
-    themeId = getTheme(userId);
+    themeName = getTheme(userId);
+    console.log("ThemeName",themeName); //FOR TESTING GRAPH COLOR BUG
     MoodsActivities(userId);
     newEntry(userId);
-    let themeName = sessionStorage.getItem("color");
     statChart(userId, themeName);
   });
 
