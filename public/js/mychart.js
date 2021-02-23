@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 let color = sessionStorage.getItem("color");
 let id = sessionStorage.getItem("userId");
 
 /** Get data from API: TO DO ***/
-$.get(`/api/userdata/${id}`).then(function(data) {
+// $.get(`/api/userdata/${id}`).then(function(data) {
 
-});
+// });
 
 
 // Temporary hardcoded data for Yaxis
