@@ -4,15 +4,15 @@
 $(document).ready(function () {
   M.AutoInit(); // Initialize Toasts
   // Getting references to the form and input
-  var signUpForm = $("form.signup");
-  var emailInput = $("input#email-input");
-  var nameInput = $("input#name-input");
-  var passwordInput = $("input#password-input");
+  let signUpForm = $("form.signup");
+  let emailInput = $("input#email-input");
+  let nameInput = $("input#name-input");
+  let passwordInput = $("input#password-input");
 
   // When the signup button is clicked, non-blank email and password are validated
   signUpForm.on("submit", (event) => {
     event.preventDefault();
-    var userData = {
+    let userData = {
       email: emailInput.val().trim(),
       name: nameInput.val().trim(),
       password: passwordInput.val().trim()

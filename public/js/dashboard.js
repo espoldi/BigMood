@@ -320,17 +320,22 @@ $(document).ready(function () {
             break;
           }
         }
-        const newUserData = {
-          moodId: moodValue,
-          activityId: activityValue,
-          userId: id
-        };
-        // create new entries in userdata table
-        $.post("/api/userdata", newUserData).then((response) => {
-          location.reload();
-        }).catch((error) => {
-          console.log(JSON.stringify(error));
-        });
+        if (!moodValue || !activityValue){
+          M.toast({ html: "You need to select a mood AND an activity.", classes: "rounded" });
+        } else{
+          const newUserData = {
+            moodId: moodValue,
+            activityId: activityValue,
+            userId: id
+          };
+
+          // create new entries in userdata table
+          $.post("/api/userdata", newUserData).then((response) => {
+            location.reload();
+          }).catch((error) => {
+            console.log(JSON.stringify(error));
+          });
+        }
       });
     }
   }
