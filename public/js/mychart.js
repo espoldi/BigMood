@@ -24,7 +24,7 @@ var ctx = document.getElementById("chart").getContext("2d");
 var myChart = new Chart(ctx, {
   type: "bar",
   data: {
-    labels: ["M", "T", "W", "T", "F", "S", "S"],
+    labels: ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"],
     datasets: [{
       label: labelArray,
       data: [1, 3, 2, 0, 2, 3, 5],
@@ -34,7 +34,7 @@ var myChart = new Chart(ctx, {
   options: {
     title: {
       display: false,
-      text: "Average weekly mood"
+      text: "Average Weekly Mood"
     },
     legend: {
       display: false,
@@ -47,13 +47,13 @@ var myChart = new Chart(ctx, {
       }],
       yAxes: [{
         gridLines: {
-          drawOnChartArea: false
+          drawOnChartArea: true
         },
         ticks: {
           max: 5,
           min: 0,
           stepSize: 1,
-          display: false
+          display: true
         }
       }]
     }

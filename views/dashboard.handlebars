@@ -80,159 +80,165 @@
   <div class="row">
     <div class="col s12 m12 l12">
       <div class="card center">
+
         <div class="card-content">
           <h3>Dashboard Statistics</h3>
           {{!-- Chart --}}
-          <div class="container-chart">
-            <h6>Average weekly mood</h6>
-            <div class="box row">
+            <h6>Daily Mood Levels</h6>
+            
               <div class="chart-image">
-                <canvas id="chart"></canvas>
-              </div>
-              <div class="chartjs-y right-align">
-                <div class="chart-label">
-                  <i class="small material-icons">sentiment_very_satisfied</i>
-                </div>
-                <div class="chart-label">
-                  <i class="small material-icons">sentiment_satisfied</i>
-                </div>
-                <div class="chart-label">
-                  <i class="small material-icons">sentiment_neutral</i>
-                </div>
-                <div class="chart-label">
-                  <i class="small material-icons">sentiment_dissatisfied</i>
-                </div>
-                <div class="chart-label">
-                  <i class="small material-icons">sentiment_very_dissatisfied</i>
-                </div>
-                <div class="chart-label">
-                  <i class="small material-icons"> </i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card-tabs">
-          <ul class="tabs tabs-fixed-width">
-            <li class="tab"><a href="#mood">Average Mood</a></li>
-            <li class="tab"><a class="active" href="#activity">Most Used Activity</a></li>
-            <li class="tab"><a href="#quote">Latest Quote</a></li>
-          </ul>
-        </div>
-        <div class="card-content grey lighten-4">
-          <div id="mood">
-            <h4>Average Mood</h4>
-          </div>
-          <div id="activity">
-            <h4>Most Used Activity</h4>
-          </div>
-          <div id="quote">
-            <p id="new-quote"></p>
-            <p id="author"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col s12 m12 l12">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title">All Entries</span>
-          <div class="row">
-            <div class="input-field col s6">
-              <select>
-                <option value="">Sort Entries By</option>
-                <option value="1">Date</option>
-                {{#each moods}}
-                <option value="{{dataValues.id}}">{{dataValues.name}}</option>
-                {{/each}}
-                {{#each activities}}
-                <option value="{{dataValues.id}}">{{dataValues.name}}</option>
-                {{/each}}
-              </select>
+                <div class="chartjs-y right-align icon-container">
+                  <div class="chart-label icon-item">
+                    <i class="small material-icons">sentiment_very_satisfied</i>
+                  </div>
+                  <div class="chart-label icon-item">
+                    <i class="small material-icons">sentiment_satisfied</i>
+                  </div>
+                  <div class="chart-label icon-item">
+                    <i class="small material-icons">sentiment_neutral</i>
+                  </div>
+                  <div class="chart-label icon-item">
+                    <i class="small material-icons">sentiment_dissatisfied</i>
+                  </div>
+                  <div class="chart-label icon-item">
+                    <i class="small material-icons">sentiment_very_dissatisfied</i>
+                  </div>
+                  <div class="chart-label icon-item">
+                    <i class="small material-icons"> </i>
+                  </div>
+                </div>
+                
+                <canvas id="chart"><canvas />
+
+              </div>
+          </div>
+
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab"><a href="#mood">Average Mood</a></li>
+              <li class="tab"><a class="active" href="#activity">Most Used Activity</a></li>
+              <li class="tab"><a href="#quote">Latest Quote</a></li>
+            </ul>
+          </div>
+          <div class="card-content grey lighten-4">
+            <div id="mood">
+              <h4>Average Mood</h4>
+            </div>
+            <div id="activity">
+              <h4>Most Used Activity</h4>
+            </div>
+            <div id="quote">
+              <p id="new-quote"></p>
+              <p id="author"></p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">All Entries</span>
+            <div class="row">
+              <div class="input-field col s6">
+                <select>
+                  <option value="">Sort Entries By</option>
+                  <option value="1">Date</option>
+                  {{#each moods}}
+                  <option value="{{dataValues.id}}">{{dataValues.name}}</option>
+                  {{/each}}
+                  {{#each activities}}
+                  <option value="{{dataValues.id}}">{{dataValues.name}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <ul class="collapsible">
+          {{#each entries}}
+
+          <li>
+            <div class="collapsible-header">
+              <i class="material-icons">{{dataValues.Mood.dataValues.icon}}</i>{{dataValues.Mood.dataValues.name}}
+            </div>
+            <div class="collapsible-body">
+              <span>
+                Date: {{dataValues.createdAt}}<br>
+                Activities: <div class="chip"><i
+                    class="material-icons">{{dataValues.Activity.dataValues.icon}}</i>{{dataValues.Activity.dataValues.name}}
+                </div>
+              </span>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <div class="row">
-    <div class="col s12 m12 l12">
-      <ul class="collapsible">
-        {{#each entries}}
-        
-        <li>
-          <div class="collapsible-header">
-            <i class="material-icons">{{dataValues.Mood.dataValues.icon}}</i>{{dataValues.Mood.dataValues.name}}
-          </div>
-          <div class="collapsible-body">
-            <span>
-              Date: {{dataValues.createdAt}}<br>
-              Activities: <div class="chip"><i
-                  class="material-icons">{{dataValues.Activity.dataValues.icon}}</i>{{dataValues.Activity.dataValues.name}}
-              </div>
+  {{!-- Modal New Mood Entry --}}
+  <button class="btn theme-switch hoverable modal-trigger" data-target="newEntry" id="modalButton"><i
+      class="material-icons">add</i></button>
+
+  <div class="modal" id="newEntry">
+    <div class="modal-content">
+      <form id="createform">
+        <h3>How are you feeling?</h3>
+        <div class="row" id="mood-list">
+
+          {{!-- Mood Icons --}}
+          {{#each moods}}
+          <label>
+            <input class="with-gap" name="moodgroup" id="moodlist{{dataValues.id}}" value="{{dataValues.id}}"
+              type="radio" />
+            <span><i class="material-icons medium">{{dataValues.icon}}</i><br>
+              <div class="center">{{dataValues.name}}</div>
             </span>
-          </div>
-        </li>
-        {{/each}}
-      </ul>
+          </label>
+          {{/each}}
+        </div>
+
+        <div class="divider"></div>
+
+        <h3>What are you doing?</h3>
+        <div id="activitylist">
+          {{!-- Activity Icons --}}
+          {{#each activities}}
+          <label>
+            <input class="with-gap" name="activitygroup" id="activitylist{{dataValues.id}}" value="{{dataValues.id}}"
+              type="radio" />
+            <span><i class="material-icons medium">{{dataValues.icon}}</i><br>
+              <div class="center">{{dataValues.name}}</div>
+            </span>
+          </label>
+          {{/each}}
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <div class="modal-footer">
+          <button type="submit" class="btn green">Submit</button>
+          <button class="btn red modal-close">Cancel</button>
+        </div>
+
+
+      </form>
+
     </div>
   </div>
-</div>
-
-{{!-- Modal New Mood Entry --}}
-<button class="btn theme-switch hoverable modal-trigger" data-target="newEntry" id="modalButton"><i
-    class="material-icons">add</i></button>
-
-<div class="modal" id="newEntry">
-  <div class="modal-content">
-    <form id="createform">
-      <h3>How are you feeling?</h3>
-      <div class="row" id="mood-list">
-
-        {{!-- Mood Icons --}}
-        {{#each moods}}
-        <label>
-          <input class="with-gap" name="moodgroup" id="moodlist{{dataValues.id}}" value="{{dataValues.id}}"
-            type="radio" />
-          <span><i class="material-icons medium">{{dataValues.icon}}</i><br><div class="center">{{dataValues.name}}</div></span>
-        </label>
-        {{/each}}
-      </div>
-
-      <div class="divider"></div>
-
-      <h3>What are you doing?</h3>
-      <div id="activitylist">
-        {{!-- Activity Icons --}}
-        {{#each activities}}
-        <label>
-          <input class="with-gap" name="activitygroup" id="activitylist{{dataValues.id}}" value="{{dataValues.id}}"
-            type="radio" />
-          <span><i class="material-icons medium">{{dataValues.icon}}</i><br><div class="center">{{dataValues.name}}</div></span>
-        </label>
-        {{/each}}
-      </div>
-
-
-      <div class="divider"></div>
-
-
-      <div class="modal-footer">
-        <button type="submit" class="btn green">Submit</button>
-        <button class="btn red modal-close">Cancel</button>
-      </div>
-
-
-    </form>
-
-  </div>
-</div>
-{{!-- Link to chartJs --}}
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-{{!-- Link to Dashboard JS --}}
-<script src="./js/dashboard.js"></script>
-<script src="./js/mychart.js"></script>
+  {{!-- Link to chartJs --}}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  {{!-- Link to Dashboard JS --}}
+  <script src="./js/dashboard.js"></script>
+  <script src="./js/mychart.js"></script>
