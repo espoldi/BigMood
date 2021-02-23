@@ -2,23 +2,23 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const { Op } = require("sequelize");
 
 module.exports = (app) => {
 
   // function to delete the display of the password
   const delPass = (val) => {
-    delete val.dataValues.password;
+    if (val.dataValues.password){
+      delete val.dataValues.password;
+    } else if (val.dataValues.User.dataValues.password){
+      delete val.dataValues.User.dataValues.password;
+    }
     return val;
   };
 
-  // function to delete the display of the password and ThemeId when associated table
-  const delPass2 = (val) => {
-    delete val.dataValues.User.dataValues.password;
-    return val;
-  };
 
   // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page. Otherwise the user will be sent an error
+  // If the user has valid login credentials, send them to the dashboard page. Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json(req.user);
   });
@@ -47,8 +47,7 @@ module.exports = (app) => {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
+      // Otherwise send back the user's email and id without the password
       res.json({
         name: req.user.name,
         email: req.user.email,
@@ -140,7 +139,30 @@ module.exports = (app) => {
         include:[db.User, db.Mood, db.Activity]
       }).then((result) => {
         result.forEach((val) => {
-          delPass2(val); // Excluding password and unnessary key from result
+          delPass(val); // Excluding password from result
+        });
+        res.json(result);
+      });
+    }
+  });
+
+  // GET route for retrieveing at specific time from current user
+  const startDate = new Date(new Date().setDate(new Date().getDate() - 7));
+  const endDate = new Date();
+  app.get("/api/userdata2/:userId", (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      db.UserData.findAll({
+        where: {
+          userId: req.params.userId,
+          updatedAt: {[Op.between] : [startDate , endDate ]}
+        },
+        include:[db.User, db.Mood, db.Activity]
+      }).then((result) => {
+        result.forEach((val) => {
+          delPass(val); // Excluding password from result
         });
         res.json(result);
       });

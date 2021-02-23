@@ -1,7 +1,6 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
-/* eslint-disable linebreak-style */
+
 $(document).ready(function () {
   M.AutoInit(); // Initialize Toasts
   // Getting references to the form and input
@@ -30,7 +29,7 @@ $(document).ready(function () {
     passwordInput.val("");
   });
 
-  // Does a post to the signup route. If successful, we are redirected to the members page
+  // Does a post to the signup route. If successful, we are redirected to the dashboard page
   // Otherwise we log any errors
   function signUpUser(email, name, password) {
     $.post("/api/signup", {
