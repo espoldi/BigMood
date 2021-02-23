@@ -28,7 +28,6 @@ body {
   align-content: center;
 }
 
-
 .profile {
     width: 7rem;
     height: 7rem;
@@ -54,35 +53,16 @@ h5 {
     padding: 25px;
 }
 
-/* For the Chart */
-/* .container-chart {
-    width: 100%;
-    margin: 3%;
-    position: relative;
-  } */
-/* .chartjs-y {
-  padding: 0 !important;
-  position: absolute; 
-            top: 17px; 
-            left: 0px;
-} */
-
 .chart-label {
   margin-top: 0.2rem;
 }
-/* .chart-image{
-    margin-left: 30px; 
-} */
 
-/* child */
-#chart{
-    /* width: 50%; */
-    border: 1px solid;
+#chart {
     max-width: 35rem;
     max-height: 25rem;
     margin: auto;
 }
-/* child */
+
 .icon-container {
   border: 1px solid;
   z-index: 2;
@@ -91,11 +71,9 @@ h5 {
   border: 1px solid;
 }
 
-/* parent */
 .chart-image {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   border: 1px solid;
-  /* align-items: center; */
 }
