@@ -3,8 +3,8 @@ USE bigmood_db;
 
 INSERT INTO themes (name)
 VALUES
-("light"),
-("dark"),
+("gray"),
+("black"),
 ("red"),
 ("blue"),
 ("green");

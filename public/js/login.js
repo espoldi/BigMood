@@ -1,17 +1,16 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable no-use-before-define */
-/* eslint-disable linebreak-style */
+
 $(document).ready(() => {
   M.AutoInit(); // Initialize Toasts
   // Getting references to our form and inputs
-  var loginForm = $("form.login");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
+  let loginForm = $("form.login");
+  let emailInput = $("input#email-input");
+  let passwordInput = $("input#password-input");
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", (event) => {
     event.preventDefault();
-    var userData = {
+    let userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
@@ -27,7 +26,7 @@ $(document).ready(() => {
     passwordInput.val("");
   });
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+  // loginUser does a post to our "api/login" route and if successful, redirects us the the dashboard page
   function loginUser(email, password) {
     $.post("/api/login", {
       email: email,
@@ -36,9 +35,9 @@ $(document).ready(() => {
       .then(() => {
         window.location.replace("/dashboard");
       })
-      .catch((err) => { // If there's an error, log the error
-        console.log(`An error occured: ${JSON.stringify(err)}`);
-        if (err.status === 401) {
+      .catch((error) => { // If there's an error, log the error
+        console.log(`An error occured: ${JSON.stringify(error)}`);
+        if (error.status === 401) {
           M.toast({ html: "Ooops! <br> Wrong email and/or password.", classes: "rounded" });
         }
       });
