@@ -80,44 +80,19 @@
   <div class="row">
     <div class="col s12 m12 l12">
       <div class="card center">
+
         <div class="card-content">
           <h3>Dashboard Statistics</h3>
           {{!-- Chart --}}
-          <div class="container-chart">
-            <h6>Average weekly mood</h6>
-            <div class="box row">
-              <div class="chart-image">
-                <canvas id="chart"></canvas>
-              </div>
-              <div class="chartjs-y right-align">
-                <div class="chart-label">
-                  <i class="small material-icons">sentiment_very_satisfied</i>
-                </div>
-                <div class="chart-label">
-                  <i class="small material-icons">sentiment_satisfied</i>
-                </div>
-                <div class="chart-label">
-                  <i class="small material-icons">sentiment_neutral</i>
-                </div>
-                <div class="chart-label">
-                  <i class="small material-icons">sentiment_dissatisfied</i>
-                </div>
-                <div class="chart-label">
-                  <i class="small material-icons">sentiment_very_dissatisfied</i>
-                </div>
-                <div class="chart-label">
-                  <i class="small material-icons"> </i>
-                </div>
-              </div>
-              
-            </div>
-          </div>
+          <h6>Daily Mood Levels</h6>
+          <canvas id="chart"><canvas />
         </div>
+
         <div class="card-tabs">
           <ul class="tabs tabs-fixed-width">
-            <li class="tab"><a href="#mood">Average Mood</a></li>
-            <li class="tab"><a class="active" href="#activity">Most Used Activity</a></li>
-            <li class="tab"><a href="#quote">Latest Quote</a></li>
+            <li class="tab"><a href="#mood">Mood</a></li>
+            <li class="tab"><a class="active" href="#activity">Activity</a></li>
+            <li class="tab"><a href="#quote">Quote</a></li>
           </ul>
         </div>
         <div class="card-content grey lighten-4">
@@ -167,7 +142,7 @@
     <div class="col s12 m12 l12">
       <ul class="collapsible">
         {{#each entries}}
-        
+
         <li>
           <div class="collapsible-header">
             <i class="material-icons">{{dataValues.Mood.dataValues.icon}}</i>{{dataValues.Mood.dataValues.name}}
@@ -202,7 +177,9 @@
         <label>
           <input class="with-gap" name="moodgroup" id="moodlist{{dataValues.id}}" value="{{dataValues.id}}"
             type="radio" />
-          <span><i class="material-icons medium">{{dataValues.icon}}</i><br><div class="center">{{dataValues.name}}</div></span>
+          <span><i class="material-icons medium">{{dataValues.icon}}</i><br>
+            <div class="center">{{dataValues.name}}</div>
+          </span>
         </label>
         {{/each}}
       </div>
@@ -216,7 +193,9 @@
         <label>
           <input class="with-gap" name="activitygroup" id="activitylist{{dataValues.id}}" value="{{dataValues.id}}"
             type="radio" />
-          <span><i class="material-icons medium">{{dataValues.icon}}</i><br><div class="center">{{dataValues.name}}</div></span>
+          <span><i class="material-icons medium">{{dataValues.icon}}</i><br>
+            <div class="center">{{dataValues.name}}</div>
+          </span>
         </label>
         {{/each}}
       </div>
