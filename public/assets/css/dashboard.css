@@ -72,3 +72,7 @@ h5 {
 #chart{
     width: 50%;
 }
+
+.black>div:nth-last-child(1)>div>ul>li>div:nth-last-child(1) .result {
+    color: white !important;
+}
