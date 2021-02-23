@@ -5,15 +5,9 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 const db = require("../models");
 
 module.exports = function (app) {
-
-  const delPass2 = (val) => {
-    delete val.dataValues.User.dataValues.password;
-    delete val.dataValues.User.dataValues.ThemeId;
-    return val;
-  };
-
+// Route to sign user in
   app.get("/signup", (req, res) => {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the dashboard page
     if (req.user) {
       res.redirect("/dashboard");
     }
@@ -22,8 +16,9 @@ module.exports = function (app) {
     });
   });
 
+  // Route to log user in
   app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the dashboard page
     if (req.user) {
       res.redirect("/dashboard");
     }
@@ -38,9 +33,6 @@ module.exports = function (app) {
     const result1 = await db.UserData.findAll({
       where: { userId: req.user.id },
       include: [db.User, db.Mood, db.Activity]
-    });
-    result1.forEach((val) => {
-      delPass2(val);
     });
 
     const result2 = await db.Mood.findAll();
