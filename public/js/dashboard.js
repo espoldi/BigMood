@@ -82,7 +82,6 @@ $(document).ready(function () {
     userName = data.name; // current username
     userId = data.id; // current user id
     $(".current-user").text(userName);
-    sessionStorage.setItem("userId", userId); // Store to session for graph
     themeId = getTheme(userId);
   });
 
