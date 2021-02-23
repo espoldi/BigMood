@@ -80,3 +80,7 @@ h5 {
     font-size: 1.8rem;
   }
 }
+
+.black>div:nth-last-child(1)>div>ul>li>div:nth-last-child(1) .result {
+  color: white !important;
+}
