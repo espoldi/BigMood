@@ -160,7 +160,7 @@ $(document).ready(function () {
         }
       }
       const newUserData = {
-        MoodId: moodValue,
+        moodId: moodValue,
         activityId: activityValue,
         userId: userId
       };
