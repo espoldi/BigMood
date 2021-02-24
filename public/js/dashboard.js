@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 /* eslint-disable no-unused-vars */
 $(document).ready(function () {
   let userName;
@@ -254,14 +255,21 @@ $(document).ready(function () {
   // Function to get all moods average and most used activities
   function MoodsActivities(id){
     $.get(`/api/userdata/${id}`).then((data) => {
-      let userMoods = [], userActivities = [];
+      let userMoods = [], userActivities = [], userActivitiesList =[];
       let moodAvgIcon, moodAvgName;
+      let userActivitiesObject;
 
       // Pushing result in differents arrays
       for (let i = 0; i < data.length; i++){
         userMoods.push(data[i].moodId); // Get all moodId for a user
         userActivities.push(data[i].Activity.name); // Get all activities for a user
+        userActivitiesObject = {
+          name: data[i].Activity.name,
+          icon: data[i].Activity.icon
+        };
+        userActivitiesList.push(userActivitiesObject);       
       }
+      console.log(userActivitiesList);
       // Getting the average mood
       let total = 0;
       for (let i = 0; i < userMoods.length; i++) {
@@ -283,7 +291,7 @@ $(document).ready(function () {
       case 4: moodAvgName = "sad";
         moodAvgIcon = "sentiment_dissatisfied";
         break;
-      default: moodAvgName = "breakdown";
+      case 5: moodAvgName = "breakdown";
         moodAvgIcon = "sentiment_very_dissatisfied";
       }
       $("#fav-mood").text(moodAvgIcon); // Display icon
@@ -291,7 +299,12 @@ $(document).ready(function () {
 
       // Getting the most common activity
       let myActivity= commonlyUsed(userActivities);
-      $("#fav-activity").text(myActivity); // Display icon
+      console.log(myActivity)
+      for (let i = 0; i< userActivitiesList.length; i++) {
+        if (myActivity === userActivitiesList[i].name){
+          $("#fav-activity").text(userActivitiesList[i].name); // Display icon
+        }
+      }
       $("#my-activity").text(myActivity); // Display name
     }).catch((error) => {
       console.log(JSON.stringify(error));
