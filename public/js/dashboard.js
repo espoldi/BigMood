@@ -94,7 +94,7 @@ $(document).ready(function () {
     });
   }
 
-  // Fo get the data to draw the chart
+  // Function to get the data to draw the chart
   function statChart(id, color){
     let userMoods = [], entryDates = [], datesIndex=[], avgMood=[];
     let sundayTotal = 0, mondayTotal = 0, tuesdayTotal = 0,

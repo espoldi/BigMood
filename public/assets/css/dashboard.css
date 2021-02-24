@@ -74,6 +74,10 @@ h5 {
   font-style: italic;
 }
 
+.black>div:nth-last-child(1)>div>ul>li>div:nth-last-child(1) .result {
+    color: white !important;
+}
+
 @media screen and (max-width: 550px) {
   h3,
   h4 {
