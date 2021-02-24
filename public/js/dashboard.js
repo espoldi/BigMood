@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 /* eslint-disable no-unused-vars */
 $(document).ready(function () {
   let userName;
@@ -26,75 +27,6 @@ $(document).ready(function () {
   // Modal for new entry
   const newEntryWindow = $(".modal");
   M.Modal.init(newEntryWindow, {});
-
-
-  // Function to change color class based on the themeId
-  function displayTheme(theme) {
-    const themeSwitch = $(".theme-switch");
-    const themeText = $(".theme-text");
-    let color;
-    switch (theme) {
-    case 2: color = "black";
-      break;
-    case 3: color = "red";
-      break;
-    case 4: color = "blue";
-      break;
-    case 5: color = "green";
-      break;
-    default: color = "grey";
-    }
-    themeSwitch.each(function () {
-      if ((themeSwitch.hasClass("red"))) {
-        themeSwitch.removeClass("red");
-      }
-      if ((themeSwitch.hasClass("blue"))) {
-        themeSwitch.removeClass("blue");
-      }
-      if ((themeSwitch.hasClass("green"))) {
-        themeSwitch.removeClass("green");
-      }
-      if ((themeSwitch.hasClass("black"))) {
-        themeSwitch.removeClass("black");
-      }
-      if ((themeSwitch.hasClass("grey"))) {
-        themeSwitch.removeClass("grey");
-      }
-      themeSwitch.addClass(color);
-    });
-
-    // Change text color
-    themeText.each(function() {
-      if((themeText.hasClass("red-text"))){
-        themeText.removeClass("red-text");
-      }
-      if((themeText.hasClass("blue-text"))){
-        themeText.removeClass("blue-text");
-      }
-      if((themeText.hasClass("green-text"))){
-        themeText.removeClass("green-text");
-      }
-      if((themeText.hasClass("black-text"))){
-        themeText.removeClass("black-text");
-      }
-      if ((themeText.hasClass("grey-text"))) {
-        themeText.removeClass("grey-text");
-      }
-      themeText.addClass(`${color}-text`);
-    });
-  }
-
-
-  // Get the current theme for the current user
-  function getTheme(id) {
-    $.get(`/api/users/${id}`).then(function (data) {
-      let userTheme = data.Theme.id; // current user Theme
-      let theme = data.Theme.name; // current Theme name
-      displayTheme(userTheme);
-      console.log ("theme", theme); //FOR TESTING GRAPH COLOR BUG
-      return theme;
-    });
-  }
 
 
   // Function to get the most commonly found in an array
@@ -128,6 +60,7 @@ $(document).ready(function () {
         }]
       },
       options: {
+        responsive: true,
         title: {
           display: false,
           text: "Average weekly mood"
@@ -142,6 +75,10 @@ $(document).ready(function () {
             }
           }],
           yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: "HAPPINESS LEVEL"
+            },
             gridLines: {
               drawOnChartArea: false
             },
@@ -159,7 +96,6 @@ $(document).ready(function () {
 
   // Function to get the data to draw the chart
   function statChart(id, color){
-    console.log ("color", color); //FOR TESTING GRAPH COLOR BUG
     let userMoods = [], entryDates = [], datesIndex=[], avgMood=[];
     let sundayTotal = 0, mondayTotal = 0, tuesdayTotal = 0,
       wednesdayTotal = 0, thursdayTotal = 0, fridayTotal = 0, saturdayTotal = 0,
@@ -250,17 +186,92 @@ $(document).ready(function () {
   }
 
 
+  // Function to change color class based on the themeId
+  function displayTheme(theme) {
+    const themeSwitch = $(".theme-switch");
+    const themeText = $(".theme-text");
+    let color;
+    switch (theme) {
+    case 2: color = "black";
+      break;
+    case 3: color = "red";
+      break;
+    case 4: color = "blue";
+      break;
+    case 5: color = "green";
+      break;
+    default: color = "grey";
+    }
+    themeSwitch.each(function () {
+      if ((themeSwitch.hasClass("red"))) {
+        themeSwitch.removeClass("red");
+      }
+      if ((themeSwitch.hasClass("blue"))) {
+        themeSwitch.removeClass("blue");
+      }
+      if ((themeSwitch.hasClass("green"))) {
+        themeSwitch.removeClass("green");
+      }
+      if ((themeSwitch.hasClass("black"))) {
+        themeSwitch.removeClass("black");
+      }
+      if ((themeSwitch.hasClass("grey"))) {
+        themeSwitch.removeClass("grey");
+      }
+      themeSwitch.addClass(color);
+    });
+
+    // Change text color
+    themeText.each(function() {
+      if((themeText.hasClass("red-text"))){
+        themeText.removeClass("red-text");
+      }
+      if((themeText.hasClass("blue-text"))){
+        themeText.removeClass("blue-text");
+      }
+      if((themeText.hasClass("green-text"))){
+        themeText.removeClass("green-text");
+      }
+      if((themeText.hasClass("black-text"))){
+        themeText.removeClass("black-text");
+      }
+      if ((themeText.hasClass("grey-text"))) {
+        themeText.removeClass("grey-text");
+      }
+      themeText.addClass(`${color}-text`);
+    });
+  }
+
+
+  // Get the current theme for the current user
+  function getTheme(id) {
+    $.get(`/api/users/${id}`).then((data) => {
+      let userTheme = data.Theme.id; // current user Theme
+      let theme = data.Theme.name; // current Theme name
+      displayTheme(userTheme);
+      statChart(id, theme); // Display Chart with theme
+      return theme;
+    });
+  }
+
   // Function to get all moods average and most used activities
   function MoodsActivities(id){
     $.get(`/api/userdata/${id}`).then((data) => {
-      let userMoods = [], userActivities = [];
-      let moodAvgIcon, moodAvgName;
+      let userMoods = [], userActivities = [], userActivitiesList =[];
+      let moodAvgIcon, moodAvgName, myActivityIcon;
+      let userActivitiesObject;
 
       // Pushing result in differents arrays
       for (let i = 0; i < data.length; i++){
         userMoods.push(data[i].moodId); // Get all moodId for a user
         userActivities.push(data[i].Activity.name); // Get all activities for a user
+        userActivitiesObject = { // Object containing name and icon
+          name: data[i].Activity.name,
+          icon: data[i].Activity.icon
+        };
+        userActivitiesList.push(userActivitiesObject);
       }
+
       // Getting the average mood
       let total = 0;
       for (let i = 0; i < userMoods.length; i++) {
@@ -282,15 +293,20 @@ $(document).ready(function () {
       case 4: moodAvgName = "sad";
         moodAvgIcon = "sentiment_dissatisfied";
         break;
-      default: moodAvgName = "breakdown";
+      case 5: moodAvgName = "breakdown";
         moodAvgIcon = "sentiment_very_dissatisfied";
       }
       $("#fav-mood").text(moodAvgIcon); // Display icon
       $("#my-mood").text(moodAvgName); // Display name
 
-      // Getting the most common activity
+      // Getting the most common activity and finding its icon
       let myActivity= commonlyUsed(userActivities);
-      $("#fav-activity").text(myActivity); // Display icon
+      for (let i = 0; i< userActivitiesList.length; i++) {
+        if (myActivity === userActivitiesList[i].name){
+          myActivityIcon = userActivitiesList[i].icon;
+        }
+      }
+      $("#fav-activity").text(myActivityIcon); // Display icon
       $("#my-activity").text(myActivity); // Display name
     }).catch((error) => {
       console.log(JSON.stringify(error));
@@ -340,15 +356,13 @@ $(document).ready(function () {
   }
 
   // Get the current user name and id and render all dependencies
-  $.get("/api/user_data").then(function (data) {
+  $.get("/api/user_data").then((data) => {
     userName = data.name; // current username
     userId = data.id; // current user id
     $(".current-user").text(userName);
-    themeName = getTheme(userId);
-    console.log("ThemeName",themeName); //FOR TESTING GRAPH COLOR BUG
+    getTheme(userId);
     MoodsActivities(userId);
     newEntry(userId);
-    statChart(userId, themeName);
   });
 
   // Dropdown listeners
