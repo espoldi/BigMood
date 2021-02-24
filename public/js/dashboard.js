@@ -157,7 +157,7 @@ $(document).ready(function () {
     });
   }
 
-  // Fo get the data to draw the chart
+  // Function to get the data to draw the chart
   function statChart(id, color){
     console.log ("color", color); //FOR TESTING GRAPH COLOR BUG
     let userMoods = [], entryDates = [], datesIndex=[], avgMood=[];
@@ -248,7 +248,6 @@ $(document).ready(function () {
     });
 
   }
-
 
 
   // Function to get all moods average and most used activities

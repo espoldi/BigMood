@@ -86,7 +86,9 @@ There is nothing to install to use this web app. New users must create a login t
 
 ## Future Development  
 
-A feature that we would like to add to the app is the ability to allow users to enter in their own activities, and keep those activities reserved for only their use.  
+We will continue to make adjustments to the UI layout and functionality until the app is perfect in every way. 
+
+A larger feature to incorporate would be allowing users to add in their own personal activities to the activity list. 
 
 *   [Return to Top](#BigMood)  
 
