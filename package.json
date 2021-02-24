@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qifeng86/BigMood.git"
+    "url": "git+https://github.com/espoldi/BigMood.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Emily Spoldi, Qi Feng, Delph Sunny, Jeremy Rice",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/qifeng86/BigMood/issues"
+    "url": "https://github.com/espoldi/BigMood/issues"
   },
-  "homepage": "https://github.com/qifeng86/BigMood#readme",
+  "homepage": "https://github.com/espoldi/BigMood#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
