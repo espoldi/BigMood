@@ -3,22 +3,23 @@
 # BigMood 
   
 [![Build Status](https://travis-ci.com/espoldi/bigmood.svg?branch=main)](https://travis-ci.com/espoldi/bigmood)
-![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/espoldi/bigmood/latest/main) 
-[![GitHub license](https://img.shields.io/github/license/espoldi/bigmood)](https://github.com/espoldi/bigmood/blob/master/LICENSE) 
+<a href="https://img.shields.io/badge/express-v4.16.4-red?style=plastic"><img alt="Express used" src="https://img.shields.io/badge/express-v4.16.4-red?style=plastic"/></a>
+<a href="https://img.shields.io/badge/npm-sequelize-blue?style=plastic"><img alt="Sequelize" src="https://img.shields.io/badge/npm-sequelize-blue?style=plastic"/></a>
+<a href="https://img.shields.io/badge/npm-express--handlebars-blue?style=plastic"><img alt="npm package Express-handlebars" src="https://img.shields.io/badge/npm-express--handlebars-blue?style=plastic"/></a>
+[![GitHub license](https://img.shields.io/github/license/espoldi/bigmood)](https://github.com/espoldi/bigmood/blob/master/LICENSE)
 
 </span>  
 
 ## Table of Contents  
-* [Description](#Description)  
-* [Motivation](#Motivation)  
-* [User Story and Details](#User-Story-and-Details)  
-* [Installation and Usage](#Installation-and-Usage)  
-* [Images of the app](#Images-of-the-app)  
-* [Team Roles](#Team-Roles)  
-* [Future Development](#Future-Development)
-* [Credits](#Credits) 
-* [License](#License)  
-* [Contact](#Contact) 
+*   [Description](#Description)  
+*   [Motivation](#Motivation)  
+*   [User Story and Details](#User-Story-and-Details)  
+*   [Installation and Usage](#Installation-and-Usage)  
+*   [Images of the app](#Images-of-the-app)  
+*   [Team Roles](#Team-Roles)  
+*   [Future Development](#Future-Development)
+*   [License](#License)  
+*   [Contact](#Contact) 
 
 
 ## Description  
@@ -26,6 +27,8 @@
 The "BigMood" web app gives users an easy way to track their mood throughout the day. After they are asked to create an account, users will log in to the app and create a new entry where they are prompted to report how they are feeling on a 1-5 scale (their mood), and what their current activity is. They will also be presented with a randomly chosen inspirational quote. On subsequent logins, in addition to recording their current mood and activity, users will be able to view all past entries, see a graph displaying their average mood, view their most used activity, and change the theme of the app. 
 
 The deployed app can be found online here: [BigMood App](https://https://bigmoodapp.herokuapp.com/)
+
+A Google Slides presentaion of the app's features and development story: [BigMood Presentation](https://docs.google.com/presentation/d/1Pm2SPSUAXzJR2UoU1Cz5aEdGtsD28mzy99wyRRpd-jw/edit?usp=sharing)
  
 *   [Return to Top](#BigMood)  
 
@@ -87,11 +90,6 @@ A feature that we would like to add to the app is the ability to allow users to 
 
 *   [Return to Top](#BigMood)  
 
-## Credits  
- 
-Icon made by Freepik from [www.flaticon.com](https://www.flaticon.com/)
-
-*   [Return to Top](#BigMood)  
 
 ## License  
 
