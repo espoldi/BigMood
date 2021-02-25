@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true })); // "secret" is part of a hash to decrypt user passwords
+app.use(session({ secret: process.env.SECRET, resave: true, saveUninitialized: true })); // "secret" is part of a hash to decrypt user passwords
 app.use(passport.initialize());
 app.use(passport.session());
 
