@@ -74,6 +74,12 @@ h5 {
   font-style: italic;
 }
 
+#toast-container {
+    top: 20%;
+    right: 50%;
+    transform: translateX(50%) translateY(50%);
+}
+
 .black>div:nth-last-child(1)>div>ul>li>div:nth-last-child(1) .result {
     color: white !important;
 }
@@ -83,8 +89,4 @@ h5 {
   h4 {
     font-size: 1.8rem;
   }
-}
-
-.black>div:nth-last-child(1)>div>ul>li>div:nth-last-child(1) .result {
-  color: white !important;
 }
