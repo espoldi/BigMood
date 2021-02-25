@@ -40,6 +40,12 @@ button:focus {
   outline-width: 0
 }
 
+#toast-container {
+    top: 20%;
+    right: 50%;
+    transform: translateX(50%) translateY(50%);
+}
+
 #logincard {
   border-radius: 0;
   border: none;
