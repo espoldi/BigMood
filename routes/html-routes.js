@@ -38,7 +38,7 @@ module.exports = function (app) {
     const result2 = await db.Mood.findAll();
 
     const result3 = await db.Activity.findAll();
-    
+
     const result4 = await db.Theme.findAll();
 
 
