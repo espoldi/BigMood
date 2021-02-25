@@ -23,14 +23,16 @@
   <div class="input-field theme col s12">
     <h5>Change Your Theme</h5>
     {{!-- Color Dropdown Trigger --}}
-    <a class="dropdown-trigger btn-large theme-switch" href="#" data-target="dropdown1">Theme<i
+    <a class='dropdown-trigger btn-large theme-switch' href='#' data-target="dropdown1">Theme<i
         class="large material-icons theme-switch">
         arrow_drop_down</i></a>
     {{!-- Color Dropdown Structure --}}
-    <ul id="dropdown1" class="dropdown-content">
-      {{#each themes}}
-      <li><a href="#!" data-id="{{dataValues.id}}">{{dataValues.name}}</a></li>
-      {{/each}}
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><a href="#!" data-id="1" class="lightTheme">Grey</a></li>
+      <li><a href="#!" data-id="2" class="darkTheme">Black</a></li>
+      <li><a href="#!" data-id="3" class="redTheme">Red</a></li>
+      <li><a href="#!" data-id="4" class="blueTheme">Blue</a></li>
+      <li><a href="#!" data-id="5" class="greenTheme">Green</a></li>
     </ul>
   </div>
   <li>
@@ -97,7 +99,7 @@
           <div id="mood">
             <p class="fav-icon"><i class="medium material-icons theme-text" id="fav-mood"> </i></p>
             <p class="fav-name" id="my-mood"></p>
-
+            
           </div>
           <div id="activity">
             <p class="fav-icon"><i class="medium material-icons theme-text" id="fav-activity"> </i></p>
